@@ -12,6 +12,18 @@ public class FieldS {
 	
 	PawnS[] pawnsOnField = new PawnS[16];
 
+	public FieldS(int index, boolean isSafe, boolean isBase, boolean isGoal, int colour, int coordinate_x,
+			int coordinate_y) {
+		super();
+		this.index = index;
+		this.isSafe = isSafe;
+		this.isBase = isBase;
+		this.isGoal = isGoal;
+		this.colour = colour;
+		this.coordinate_x = coordinate_x;
+		this.coordinate_y = coordinate_y;
+	}
+
 	public int getIndex() {
 		return index;
 	}

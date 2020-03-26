@@ -5,20 +5,30 @@ public class FieldC {
 	private int index;
 	private boolean isSafe;
 	private boolean isBase;
+	private boolean isGoal;
 	private int colour = -1; // -1 ako polje nema boju
 	private int coordinate_x;
 	private int coordinate_y;
 	
 	PawnC[] pawnsOnField = new PawnC[16];
 
-	public FieldC(int index, boolean isSafe, boolean isBase, int colour, int coordinate_x, int coordinate_y) {
+	public FieldC(int index, boolean isSafe, boolean isBase, boolean isGoal, int colour, int coordinate_x, int coordinate_y) {
 		super();
 		this.index = index;
 		this.isSafe = isSafe;
 		this.isBase = isBase;
+		this.isGoal = isGoal;
 		this.colour = colour;
 		this.coordinate_x = coordinate_x;
 		this.coordinate_y = coordinate_y;
+	}
+
+	public boolean isGoal() {
+		return isGoal;
+	}
+
+	public void setGoal(boolean isGoal) {
+		this.isGoal = isGoal;
 	}
 
 	public int getIndex() {
