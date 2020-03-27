@@ -161,15 +161,16 @@ public class GameC {
 		
 		// gore je gotovo ali prover
 		
-		//FieldC a = new FieldC(index, isSafe, isBase, colour, coordinate_x, coordinate_y)
+		//FieldC a = new FieldC(index, isSafe, isBase, isGoal, colour, coordinate_x, coordinate_y)
 		
 		//	ovde su ciljevi
+		//	za ciljeve sam stavljao kordinate za punu velicinu figure, figure treba da se promene na male tj 44x62
 		
 		// zuti
-		FieldC f73 = new FieldC(72, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f74 = new FieldC(73, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f75 = new FieldC(74, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f76 = new FieldC(75, true, false, true, CommandC.YELLOW, 295, 310);
+		FieldC f73 = new FieldC(72, true, false, true, CommandC.YELLOW, 601, 310);
+		FieldC f74 = new FieldC(73, true, false, true, CommandC.YELLOW, 601, 310);
+		FieldC f75 = new FieldC(74, true, false, true, CommandC.YELLOW, 601, 310);
+		FieldC f76 = new FieldC(75, true, false, true, CommandC.YELLOW, 601, 310);
 		
 		
 		// crveni
