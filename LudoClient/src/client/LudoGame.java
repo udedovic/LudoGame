@@ -274,7 +274,7 @@ public class LudoGame extends JFrame {
 	private JLabel getLblPawnYellow4() {
 		if (lblPawnYellow4 == null) {
 			lblPawnYellow4 = new JLabel("");
-			lblPawnYellow4.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/PawnGoal/pawnRedTableGoal.png")));
+			lblPawnYellow4.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/pawnYellowTable.png")));
 			lblPawnYellow4.setBounds(470, 173, 65, 92);
 		}
 		return lblPawnYellow4;

@@ -17,31 +17,32 @@ public class GameC {
 	private PlayerC playerGreen = new PlayerC();
 	private PlayerC playerYellow = new PlayerC();
 	
-	FieldC[] Fields = new FieldC[91];
+	FieldC[] fields = new FieldC[104];
 	
 	
 	
 	public void make_game() {
 		
-		PawnC pr1 = new PawnC(CommandC.RED, 1, 81, 835, 85);
-		PawnC pr2 = new PawnC(CommandC.RED, 2, 82, 933, 85);
-		PawnC pr3 = new PawnC(CommandC.RED, 3, 83, 835, 173);
-		PawnC pr4 = new PawnC(CommandC.RED, 4, 84, 933, 173);
 		
-		PawnC pb1 = new PawnC(CommandC.BLUE, 1, 85, 372, 550);
-		PawnC pb2 = new PawnC(CommandC.BLUE, 2, 86, 470, 550);
-		PawnC pb3 = new PawnC(CommandC.BLUE, 3, 87, 372, 635);
-		PawnC pb4 = new PawnC(CommandC.BLUE, 4, 88, 470, 635);
+		PawnC pr1 = new PawnC(CommandC.RED, 1, 92, 835, 85);
+		PawnC pr2 = new PawnC(CommandC.RED, 2, 93, 933, 85);
+		PawnC pr3 = new PawnC(CommandC.RED, 3, 94, 835, 173);
+		PawnC pr4 = new PawnC(CommandC.RED, 4, 95, 933, 173);
 		
-		PawnC pg1 = new PawnC(CommandC.GREEN, 1, 89, 835, 550);
-		PawnC pg2 = new PawnC(CommandC.GREEN, 2, 90, 933, 550);
-		PawnC pg3 = new PawnC(CommandC.GREEN, 3, 91, 835, 635);
-		PawnC pg4 = new PawnC(CommandC.GREEN, 4, 92, 933, 635);
+		PawnC pb1 = new PawnC(CommandC.BLUE, 1, 96, 372, 550);
+		PawnC pb2 = new PawnC(CommandC.BLUE, 2, 97, 470, 550);
+		PawnC pb3 = new PawnC(CommandC.BLUE, 3, 98, 372, 635);
+		PawnC pb4 = new PawnC(CommandC.BLUE, 4, 99, 470, 635);
 		
-		PawnC py1 = new PawnC(CommandC.YELLOW, 1, 77, 372, 85);
-		PawnC py2 = new PawnC(CommandC.YELLOW, 2, 78, 470, 85);
-		PawnC py3 = new PawnC(CommandC.YELLOW, 3, 79, 372, 173);
-		PawnC py4 = new PawnC(CommandC.YELLOW, 4, 80, 470, 173);
+		PawnC pg1 = new PawnC(CommandC.GREEN, 1, 100, 835, 550);
+		PawnC pg2 = new PawnC(CommandC.GREEN, 2, 101, 933, 550);
+		PawnC pg3 = new PawnC(CommandC.GREEN, 3, 102, 835, 635);
+		PawnC pg4 = new PawnC(CommandC.GREEN, 4, 103, 933, 635);
+		
+		PawnC py1 = new PawnC(CommandC.YELLOW, 1, 88, 372, 85);
+		PawnC py2 = new PawnC(CommandC.YELLOW, 2, 89, 470, 85);
+		PawnC py3 = new PawnC(CommandC.YELLOW, 3, 90, 372, 173);
+		PawnC py4 = new PawnC(CommandC.YELLOW, 4, 91, 470, 173);
 		
 		playerRed.getPawns()[0] = pr1;
 		playerRed.getPawns()[1] = pr2;
@@ -66,8 +67,6 @@ public class GameC {
 		/*
 		 * 	ovde dalje cemo praviti i polja
 		 */
-		
-		// treba dodati unutra atribut isGoal
 		
 		FieldC f1 = new FieldC(0, true, false, false, CommandC.YELLOW, 295, 310);
 		FieldC f2 = new FieldC(1, false, false, false, -1, 346, 310);
@@ -135,6 +134,8 @@ public class GameC {
 		
 		// ovde se zavrsavaju polja za hod
 		
+		//	ovo su ulazi u cilj
+		
 		FieldC f53 = new FieldC(52, true, false, false, CommandC.YELLOW, 346, 361);
 		FieldC f54 = new FieldC(53, true, false, false, CommandC.YELLOW, 397, 361);
 		FieldC f55 = new FieldC(54, true, false, false, CommandC.YELLOW, 448, 361);
@@ -159,64 +160,167 @@ public class GameC {
 		FieldC f71 = new FieldC(70, true, false, false, CommandC.BLUE, 516, 310);
 		FieldC f72 = new FieldC(71, true, false, false, CommandC.BLUE, 465, 310);
 		
-		// gore je gotovo ali prover
-		
-		//FieldC a = new FieldC(index, isSafe, isBase, isGoal, colour, coordinate_x, coordinate_y)
-		
+
 		//	ovde su ciljevi
 		//	za ciljeve sam stavljao kordinate za punu velicinu figure, figure treba da se promene na male tj 44x62
 		
 		// zuti
-		FieldC f73 = new FieldC(72, true, false, true, CommandC.YELLOW, 601, 310);
-		FieldC f74 = new FieldC(73, true, false, true, CommandC.YELLOW, 601, 310);
-		FieldC f75 = new FieldC(74, true, false, true, CommandC.YELLOW, 601, 310);
-		FieldC f76 = new FieldC(75, true, false, true, CommandC.YELLOW, 601, 310);
+		FieldC f73 = new FieldC(72, true, false, true, CommandC.YELLOW, 597, 386);
+		FieldC f74 = new FieldC(73, true, false, true, CommandC.YELLOW, 597, 371);
+		FieldC f75 = new FieldC(74, true, false, true, CommandC.YELLOW, 597, 356);
+		FieldC f76 = new FieldC(75, true, false, true, CommandC.YELLOW, 597, 341);
 		
 		
 		// crveni
-		FieldC f77 = new FieldC(76, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f78 = new FieldC(77, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f79 = new FieldC(78, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f80 = new FieldC(79, true, false, true, CommandC.YELLOW, 295, 310);
+		FieldC f77 = new FieldC(76, true, false, true, CommandC.RED, 623, 305);
+		FieldC f78 = new FieldC(77, true, false, true, CommandC.RED, 643, 305);
+		FieldC f79 = new FieldC(78, true, false, true, CommandC.RED, 663, 305);
+		FieldC f80 = new FieldC(79, true, false, true, CommandC.RED, 683, 305);
 		
 		// zeleni
-		FieldC f81 = new FieldC(80, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f82 = new FieldC(81, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f83 = new FieldC(82, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f84 = new FieldC(83, true, false, true, CommandC.YELLOW, 295, 310);
+		FieldC f81 = new FieldC(80, true, false, true, CommandC.BLUE, 707, 341);
+		FieldC f82 = new FieldC(81, true, false, true, CommandC.BLUE, 707, 356);
+		FieldC f83 = new FieldC(82, true, false, true, CommandC.BLUE, 707, 371);
+		FieldC f84 = new FieldC(83, true, false, true, CommandC.BLUE, 707, 386);
 		
 		
 		//	plavi
-		FieldC f85 = new FieldC(84, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f86 = new FieldC(85, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f87 = new FieldC(86, true, false, true, CommandC.YELLOW, 295, 310);
-		FieldC f88 = new FieldC(87, true, false, true, CommandC.YELLOW, 295, 310);
+		FieldC f85 = new FieldC(84, true, false, true, CommandC.GREEN, 623, 417);
+		FieldC f86 = new FieldC(85, true, false, true, CommandC.GREEN, 643, 417);
+		FieldC f87 = new FieldC(86, true, false, true, CommandC.GREEN, 663, 417);
+		FieldC f88 = new FieldC(87, true, false, true, CommandC.GREEN, 683, 417);
+			
 		
 		// ovde pocinju baze
 		// zuta
-		FieldC f89 = new FieldC(88, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f90 = new FieldC(89, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f91 = new FieldC(90, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f92 = new FieldC(91, true, true, false, CommandC.YELLOW, 295, 310);
+		FieldC f89 = new FieldC(88, true, true, false, CommandC.YELLOW, 372, 85);
+		FieldC f90 = new FieldC(89, true, true, false, CommandC.YELLOW, 470, 85);
+		FieldC f91 = new FieldC(90, true, true, false, CommandC.YELLOW, 372, 173);
+		FieldC f92 = new FieldC(91, true, true, false, CommandC.YELLOW, 470, 173);
 		
 		// crvena
-		FieldC f93 = new FieldC(92, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f94 = new FieldC(93, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f95 = new FieldC(94, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f96 = new FieldC(95, true, true, false, CommandC.YELLOW, 295, 310);
+		FieldC f93 = new FieldC(92, true, true, false, CommandC.RED, 835, 85);
+		FieldC f94 = new FieldC(93, true, true, false, CommandC.RED, 933, 85);
+		FieldC f95 = new FieldC(94, true, true, false, CommandC.RED, 835, 173);
+		FieldC f96 = new FieldC(95, true, true, false, CommandC.RED, 933, 173);
 		
 		//	plava
-		FieldC f97 = new FieldC(96, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f98 = new FieldC(97, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f99 = new FieldC(98, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f100 = new FieldC(99, true, true, false, CommandC.YELLOW, 295, 310);
+		FieldC f97 = new FieldC(96, true, true, false, CommandC.BLUE, 372, 550);
+		FieldC f98 = new FieldC(97, true, true, false, CommandC.BLUE, 470, 550);
+		FieldC f99 = new FieldC(98, true, true, false, CommandC.BLUE, 372, 635);
+		FieldC f100 = new FieldC(99, true, true, false, CommandC.BLUE, 470, 635);
 		
 		// zelena
-		FieldC f101 = new FieldC(100, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f102 = new FieldC(101, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f103 = new FieldC(102, true, true, false, CommandC.YELLOW, 295, 310);
-		FieldC f104 = new FieldC(103, true, true, false, CommandC.YELLOW, 295, 310);
+		FieldC f101 = new FieldC(100, true, true, false, CommandC.GREEN, 835, 550);
+		FieldC f102 = new FieldC(101, true, true, false, CommandC.GREEN, 933, 550);
+		FieldC f103 = new FieldC(102, true, true, false, CommandC.GREEN, 835, 635);
+		FieldC f104 = new FieldC(103, true, true, false, CommandC.GREEN, 933, 635);
 		
+		fields[0] = f1;
+		fields[1] = f2;
+		fields[2] = f3;
+		fields[3] = f4;
+		fields[4] = f5;
+		fields[5] = f6;
+		fields[6] = f7;
+		fields[7] = f8;
+		fields[8] = f9;
+		fields[9] = f10;
+		fields[10] = f11;
+		fields[11] = f12;
+		fields[12] = f13;
+		fields[13] = f14;
+		fields[14] = f15;
+		fields[15] = f16;
+		fields[16] = f17;
+		fields[17] = f18;
+		fields[18] = f19;
+		fields[19] = f20;
+		fields[20] = f21;
+		fields[21] = f22;
+		fields[22] = f23;
+		fields[23] = f24;
+		fields[24] = f25;
+		fields[25] = f26;
+		fields[26] = f27;
+		fields[27] = f28;
+		fields[28] = f29;
+		fields[29] = f30;
+		fields[30] = f31;
+		fields[31] = f32;
+		fields[32] = f33;
+		fields[33] = f34;
+		fields[34] = f35;
+		fields[35] = f36;
+		fields[36] = f37;
+		fields[37] = f38;
+		fields[38] = f39;
+		fields[39] = f40;
+		fields[40] = f41;
+		fields[41] = f42;
+		fields[42] = f43;
+		fields[43] = f44;
+		fields[44] = f45;
+		fields[45] = f46;
+		fields[46] = f47;
+		fields[47] = f48;
+		fields[48] = f49;
+		fields[49] = f50;
+		fields[50] = f51;
+		fields[51] = f52;
+		fields[52] = f53;
+		fields[53] = f54;
+		fields[54] = f55;
+		fields[55] = f56;
+		fields[56] = f57;
+		fields[57] = f58;
+		fields[58] = f59;
+		fields[59] = f60;
+		fields[60] = f61;
+		fields[61] = f62;
+		fields[62] = f63;
+		fields[63] = f64;
+		fields[64] = f65;
+		fields[65] = f66;
+		fields[66] = f67;
+		fields[67] = f68;
+		fields[68] = f69;
+		fields[69] = f70;
+		fields[70] = f71;
+		fields[71] = f72;
+		fields[72] = f73;
+		fields[73] = f74;
+		fields[74] = f75;
+		fields[75] = f79;
+		fields[76] = f77;
+		fields[77] = f78;
+		fields[78] = f79;
+		fields[79] = f80;
+		fields[80] = f81;
+		fields[81] = f82;
+		fields[82] = f83;
+		fields[83] = f84;
+		fields[84] = f85;
+		fields[85] = f86;
+		fields[86] = f87;
+		fields[87] = f88;
+		fields[88] = f89;
+		fields[89] = f90;
+		fields[90] = f91;
+		fields[91] = f92;
+		fields[92] = f93;
+		fields[93] = f94;
+		fields[94] = f95;
+		fields[95] = f96;
+		fields[96] = f97;
+		fields[97] = f98;
+		fields[98] = f99;
+		fields[99] = f100;
+		fields[100] = f101;
+		fields[101] = f102;
+		fields[102] = f103;
+		fields[103] = f104;
+
 		
 	}
 	
@@ -282,10 +386,10 @@ public class GameC {
 		this.playerYellow = playerYellow;
 	}
 	public FieldC[] getFields() {
-		return Fields;
+		return fields;
 	}
 	public void setFields(FieldC[] fields) {
-		Fields = fields;
+		fields = fields;
 	}
 	
 	
