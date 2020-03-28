@@ -5,6 +5,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -62,6 +63,11 @@ public class RunExecutes {
 				receivedCode = CommandC.NOTHING_TO_DO;
 				break;
 				
+			case CommandC.SEND_COLOR:
+				send_color();
+				receivedCode = CommandC.NOTHING_TO_DO;
+				break;
+				
 			default:
 				receivedCode = CommandC.NOTHING_TO_DO;
 				break;
@@ -74,6 +80,74 @@ public class RunExecutes {
 	}
 	
 	
+	private void send_color() throws IOException {
+		
+		while (dataIn.available() == 0);
+		int palayerID = dataIn.readInt();
+		
+		while (dataIn.available() == 0);
+		int colour = dataIn.readInt();
+		
+		if(palayerID == Client.game.getPlayerYou().getPlayerId()) {
+			// setujem da sam ja uzeo boju
+			// za sada ce izgledati isto jer treba ubaciti nove ikonice za te slucajeve
+			
+			Client.game.getPlayerYou().setColor(colour);
+			
+			switch(colour) {
+			
+			case CommandC.RED:
+					Client.ludoMain.getLblPawnRed().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedEdge.png")));
+				break;
+				
+			case CommandC.BLUE:
+				Client.ludoMain.getLblPawnBlue().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnBlueEdge.png")));
+				break;
+				
+			case CommandC.GREEN:
+				Client.ludoMain.getLblPawnGreen().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnGreenEdge.png")));
+				break;
+
+			case CommandC.YELLOW:
+				Client.ludoMain.getLblPawnYellow().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnYellowEdge.png")));
+				break;
+
+			default:
+				break;
+			
+			}
+				
+		} else {
+			// kad drugi uzmu boju
+			// za sada ce izgledati isto jer treba ubaciti nove ikonice za te slucajeve
+			
+			switch(colour) {
+			
+			case CommandC.RED:
+					Client.ludoMain.getLblPawnRed().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedEdge.png")));
+				break;
+				
+			case CommandC.BLUE:
+				Client.ludoMain.getLblPawnBlue().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnBlueEdge.png")));
+				break;
+				
+			case CommandC.GREEN:
+				Client.ludoMain.getLblPawnGreen().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnGreenEdge.png")));
+				break;
+
+			case CommandC.YELLOW:
+				Client.ludoMain.getLblPawnYellow().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnYellowEdge.png")));
+				break;
+
+			default:
+				break;
+			
+			}
+		}
+
+	}
+
+
 	private void go_start() throws IOException {
 		
 		while (dataIn.available() == 0);
@@ -85,9 +159,15 @@ public class RunExecutes {
 		// ne treba da se sve te info prukupljaju kod mene
 		// meni su potrebne samo striktne info o meni
 		
+		Client.game.getPlayerYou().setPlayerId(palayerID);
 		
+		if(palayerID == 1) {
+			Client.game.setPlayersOnTurn(palayerID);
+			Client.game.getPlayerYou().setOnTurn(true);
+		}
 		
-		
+		Client.ludoStart.setVisible(false);
+		Client.ludoMain.setVisible(true);
 		
 	}
 
@@ -106,6 +186,10 @@ public class RunExecutes {
 		case CommandC.ERROR_ROOM:
 			 JOptionPane.showMessageDialog(new JFrame(), "Room error", "Error", JOptionPane.ERROR_MESSAGE);
 			 break;
+			 
+		case CommandC.ERROR_COLOR:
+			JOptionPane.showMessageDialog(new JFrame(), "Color error, try again", "Error", JOptionPane.ERROR_MESSAGE);
+			break;
 			
 		default:
 			break;

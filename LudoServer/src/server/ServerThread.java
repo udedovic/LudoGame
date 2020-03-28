@@ -22,7 +22,16 @@ public class ServerThread extends Thread {
 	ServerThread[] clients;
 	
 	private int receivedCode = 0;
+	private int roomID = -1;
 	
+	public int getRoomID() {
+		return roomID;
+	}
+
+	public void setRoomID(int roomID) {
+		this.roomID = roomID;
+	}
+
 	public ServerThread(Socket socket, ServerThread[] clients) {
 		super();
 		this.socketForCom = socket;
@@ -53,7 +62,7 @@ public class ServerThread extends Thread {
 				switch(receivedCode) {
 				
 				case CommandS.THROW_DICE:
-					throw_dice();
+					//throw_dice();
 					break;
 					
 				case CommandS.CREATE_ROOM:
@@ -62,6 +71,10 @@ public class ServerThread extends Thread {
 				
 				case CommandS.GO_START:
 					go_start();
+					break;
+				
+				case CommandS.SEND_COLOR:
+					send_colour();
 					break;
 					
 				default:
@@ -92,6 +105,44 @@ public class ServerThread extends Thread {
 	}
 	
 	
+	private void send_colour() throws IOException {
+		
+		while (dataIn.available() == 0);
+		int roomID = dataIn.readInt();
+		
+		while (dataIn.available() == 0);
+		int playerID = dataIn.readInt();
+		
+		while (dataIn.available() == 0);
+		int color = dataIn.readInt();
+		
+		for(int i = 0; i < 10; i++) {	
+			if(Server.games[i].getRoomID() == roomID) {
+				
+				int pom = 0;
+				for(int j = 0; j < 4; j++) {
+					if(Server.games[i].getPlayers()[j] != null && Server.games[i].getPlayers()[j].getColor() == color) {
+						pom++;
+					}
+				}
+				if(pom == 0) {
+					Server.games[i].getPlayers()[playerID - 1].setColor(color);
+					send_to_players_in_game(CommandS.SEND_COLOR, playerID, color); // ako je sve proslo ok
+					
+					/*
+					 * 	vraca onu boju koju je zauzeo
+					 */
+				
+				} else {
+					dataOut.writeInt(CommandS.ERROR);
+					dataOut.writeInt(CommandS.ERROR_COLOR);
+				}
+				
+			}
+		}
+		
+	}
+
 	/*
 	 *	u ovoj metodi proveravamo da li soba posroji, ako ne saljemo gresku, ako da pravimo novog igraca i ubacujemo ga u igru
 	 *	koja se poklapa sa brojom sobe, ako je usao prvi u sobu on je prvi na potezu 
@@ -114,11 +165,13 @@ public class ServerThread extends Thread {
 						Server.games[i].players[Server.games[i].getNumberOfPlayers()] = player;		// ubacivanje novog igraca u niz
 						Server.games[i].players[Server.games[i].getNumberOfPlayers()].setOnTurn(true);
 						Server.games[i].setNumberOfPlayers(Server.games[i].getNumberOfPlayers() + 1);	// dodali smo igraca
+						roomID = room; // setovali smo roomID od niti
 						
 					} else {
 						
 						Server.games[i].players[Server.games[i].getNumberOfPlayers()] = player;
 						Server.games[i].setNumberOfPlayers(Server.games[i].getNumberOfPlayers() + 1);	// dodali smo igraca
+						roomID = room; // setovali smo roomID od niti
 						
 					}
 					
@@ -152,43 +205,49 @@ public class ServerThread extends Thread {
 		for(int i = 0; i <= Server.games.length; i++) {
 			if(Server.games[i].getRoomID() == -1) {
 				Server.games[i].setRoomID(numberOfRoom);
+				Server.games[i].make_fields();	// pravim polja u igri
 				break;
 			}
 		}
-		
+			
 		dataOut.writeInt(CommandS.CREATE_ROOM);
 		dataOut.writeInt(numberOfRoom);
 	}
 
 	
-	private void throw_dice() throws IOException {
-		int numberOnDice = (int)(Math.random()*6 + 1);
-		
-		send_to_evertone(numberOnDice, CommandS.THROW_DICE);
-	}
+//	private void throw_dice() throws IOException {
+//		int numberOnDice = (int)(Math.random()*6 + 1);
+//		
+//		send_to_players_in_game(numberOnDice, CommandS.THROW_DICE, playerID);
+//	}
 	
 	
 	/*
 	 * naredne dve metode salju int i string svim tredovima
 	 */
-	private void send_to_evertone(int dataInt, int command) throws IOException {
+
+	private void send_to_players_in_game(int command, int playerID, int dataInt) throws IOException {
 		
 		for(int i = 0; i <= 39; i++) {
 			
-			if(clients[i] != null) {
+			if(clients[i] != null && clients[i].getRoomID() == roomID) {
+
 				clients[i].dataOut.writeInt(command);	//	salje se primljeni kod klijentskoj strani da bi znao koji podatci stizu
+				clients[i].dataOut.writeInt(playerID);
 				clients[i].dataOut.writeInt(dataInt);
 			}
 		}
 	}
 	
 	
-	private void send_to_evertone(String text, int command) throws IOException {
+	private void send_to_players_in_game(int command, int playerID, String text) throws IOException {
 		
 		for(int i = 0; i <= 39; i++) {
 			
-			if(clients[i] != null) {
+			if(clients[i] != null && clients[i].getRoomID() == roomID) {
+				
 				clients[i].dataOut.writeInt(command);	//	salje se primljeni kod klijentskoj strani da bi znao koji podatci stizu
+				clients[i].dataOut.writeInt(playerID);
 				clients[i].textOut.println(text);;
 			}
 		}

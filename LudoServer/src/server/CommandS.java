@@ -14,6 +14,7 @@ public class CommandS {
 	public static final int THROW_DICE = 10;
 	public static final int GO_START = 11;
 	public static final int CREATE_ROOM = 12;
+	public static final int SEND_COLOR = 13;
 	
 	
 	
@@ -21,6 +22,7 @@ public class CommandS {
 	public static final int ERROR = 404;
 	
 	public static final int ERROR_ROOM = 405;
+	public static final int ERROR_COLOR = 406;
 	
 	
 

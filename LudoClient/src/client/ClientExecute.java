@@ -11,7 +11,7 @@ import java.io.PrintStream;
 
 public class ClientExecute {
 	
-	private static int sendingCode = 10;
+	private static int sendingCode = CommandC.NOTHING_TO_DO;
 	
 	private static DataOutputStream dataOut = null;
 	private static PrintStream textOut = null;
@@ -57,9 +57,17 @@ public class ClientExecute {
 				case CommandC.GO_START:
 					dataOut.writeInt(CommandC.GO_START);
 					dataOut.writeInt(GameC.getRoomID());
-					
 					sendingCode = CommandC.NOTHING_TO_DO;
 					break;
+					
+				case CommandC.SEND_COLOR:
+					dataOut.writeInt(CommandC.SEND_COLOR);
+					dataOut.writeInt(GameC.getRoomID());
+					dataOut.writeInt(Client.game.getPlayerYou().getPlayerId());
+					dataOut.writeInt(Client.ludoMain.getSelectedColor());
+					sendingCode = CommandC.NOTHING_TO_DO;
+					break;
+					
 					
 				default:
 					sendingCode = CommandC.NOTHING_TO_DO;

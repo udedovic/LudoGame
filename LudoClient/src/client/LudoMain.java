@@ -39,8 +39,18 @@ public class LudoMain extends JFrame {
 	private JLabel lblSetingsBackground;
 	private JLabel lblServerBackground;
 
-	private static String selectedColor;
+	private int selectedColor;
 	
+	
+	
+	public int getSelectedColor() {
+		return selectedColor;
+	}
+
+	public void setSelectedColor(int selectedColor) {
+		this.selectedColor = selectedColor;
+	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -128,11 +138,10 @@ public class LudoMain extends JFrame {
 			lblPawnBlue.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
+					
+					selectedColor = CommandC.BLUE;
 				
-//					Game.PlayerYou.setColor(ClientThread.BLUE);
-//					
-//					ClientThreadImpl.setSendingCode(ClientThread.SEND_COLOR);
-//					lblPawnBlue.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnBlueEdge.png")));
+					ClientExecute.setSendingCode(CommandC.SEND_COLOR);
 				}
 			});
 			lblPawnBlue.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnBlue.png")));
@@ -147,10 +156,10 @@ public class LudoMain extends JFrame {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					
-//					Game.PlayerYou.setColor(ClientThread.RED);
-//					
-//					ClientThreadImpl.setSendingCode(ClientThread.SEND_COLOR);
-//					lblPawnRed.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedEdge.png")));
+					selectedColor = CommandC.RED;
+					
+					ClientExecute.setSendingCode(CommandC.SEND_COLOR);
+					
 				}
 			});
 			lblPawnRed.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnRed.png")));
@@ -165,10 +174,10 @@ public class LudoMain extends JFrame {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					
-//					Game.PlayerYou.setColor(ClientThread.GREEN);
-//					
-//					ClientThreadImpl.setSendingCode(ClientThread.SEND_COLOR);
-//					lblPawnGreen.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnGreenEdge.png")));
+					selectedColor = CommandC.GREEN;
+					
+					ClientExecute.setSendingCode(CommandC.SEND_COLOR);
+					
 				}
 			});
 			lblPawnGreen.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnGreen.png")));
@@ -183,10 +192,10 @@ public class LudoMain extends JFrame {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					
-//					Game.PlayerYou.setColor(ClientThread.YELLOW);
-//					
-//					ClientThreadImpl.setSendingCode(ClientThread.SEND_COLOR);
-//					lblPawnYellow.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnYellowEdge.png")));
+					selectedColor = CommandC.YELLOW;
+					
+					ClientExecute.setSendingCode(CommandC.SEND_COLOR);
+					
 				}
 			});
 			lblPawnYellow.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnYellow.png")));

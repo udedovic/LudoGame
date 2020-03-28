@@ -8,7 +8,7 @@ public class PlayerS {
 	private boolean isOnTurn;
 	private int playerId;
 	
-	private static PawnS[] pawns = new PawnS[3];
+	private PawnS[] pawns = new PawnS[4];
 
 	public PlayerS(int playerId) {
 		super();
@@ -47,12 +47,12 @@ public class PlayerS {
 		this.playerId = playerId;
 	}
 
-	public static PawnS[] getPawns() {
+	public PawnS[] getPawns() {
 		return pawns;
 	}
 
-	public static void setPawns(PawnS[] pawns) {
-		PlayerS.pawns = pawns;
+	public void setPawns(PawnS[] pawns) {
+		this.pawns = pawns;
 	}
 	
 	
