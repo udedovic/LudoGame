@@ -7,6 +7,10 @@ import java.net.UnknownHostException;
 
 public class Client implements Runnable {
 	
+	/*
+	 * 	obavezno proveri da li sam sve nizove dobro inicijalizovao jer sam svuda oduzimao 1
+	 */
+	
 
 	private static Socket socket;
 	private static String address = "localhost";
@@ -51,6 +55,10 @@ public class Client implements Runnable {
 		int port = 9000;
 		
 			try {
+				
+				game.make_game(); // pravimo pijune i grace
+				System.out.println(game.getPlayerRed().getPawns()[0].getCoordinatePawn_x());
+				System.out.println(game.getPlayerRed().getPawns()[0].getColor());
 				
 				ludoStart.setVisible(true);	// pokrecemo gui
 				

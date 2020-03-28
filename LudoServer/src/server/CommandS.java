@@ -4,6 +4,11 @@ public class CommandS {
 	
 	public static final int NOTHING_TO_DO = 0;
 	
+	public static final int RED = 100;
+	public static final int BLUE = 101;
+	public static final int GREEN = 102;
+	public static final int YELLOW = 103;
+	
 	
 	
 	public static final int THROW_DICE = 10;
