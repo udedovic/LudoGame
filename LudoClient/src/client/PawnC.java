@@ -1,7 +1,5 @@
 package client;
 
-import server.ServerThread;
-
 public class PawnC {
 	
 	private int color;
