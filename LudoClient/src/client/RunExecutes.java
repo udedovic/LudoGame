@@ -103,6 +103,8 @@ public class RunExecutes {
 	
 	private void play() throws IOException, InterruptedException {
 		
+		// ovde ima mnogo gresaka!!!
+		
 		while (dataIn.available() == 0) {
 			Thread.sleep(10);
 		}
@@ -120,23 +122,57 @@ public class RunExecutes {
 		
 		//	ako je 1 onda je jedan novi spreman, ako je 2 onda su svi spremni
 		if(code == 1) {
-			// na osnovu boje menja se ikonica onih koji su spremni
+			
+//			// -->
+//			
+//			while (dataIn.available() == 0) {
+//				Thread.sleep(10);
+//			}
+//			int playerID = dataIn.readInt();
+//
+//			// ovde treba neka cekajuca za read line
+//			String name = textIn.readLine();
+			
 			switch(color) {
 			
 			case CommandC.RED:
-				Client.ludoMain.getLblPawnRed().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedEdge.png")));
+//				Client.game.getPlayerRed().setColor(CommandC.RED);
+//				Client.game.getPlayerRed().setName(name);
+//				Client.game.getPlayerRed().setPlayerId(playerID);
+//				if(playerID == 1) {
+//					Client.game.getPlayerRed().setOnTurn(true);;
+//				}
+				Client.ludoMain.getLblPawnRed().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedR.png")));
 				break;
 				
 			case CommandC.BLUE:
-				Client.ludoMain.getLblPawnBlue().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnBlueEdge.png")));
+//				Client.game.getPlayerBlue().setColor(CommandC.BLUE);
+//				Client.game.getPlayerBlue().setName(name);
+//				Client.game.getPlayerBlue().setPlayerId(playerID);
+//				if(playerID == 1) {
+//					Client.game.getPlayerBlue().setOnTurn(true);;
+//				}
+				Client.ludoMain.getLblPawnBlue().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnBlueR.png")));
 				break;
 				
 			case CommandC.GREEN:
-				Client.ludoMain.getLblPawnGreen().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnGreenEdge.png")));
+//				Client.game.getPlayerGreen().setColor(CommandC.GREEN);
+//				Client.game.getPlayerGreen().setName(name);
+//				Client.game.getPlayerGreen().setPlayerId(playerID);
+//				if(playerID == 1) {
+//					Client.game.getPlayerGreen().setOnTurn(true);;
+//				}
+				Client.ludoMain.getLblPawnGreen().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnGreenR.png")));
 				break;
 
 			case CommandC.YELLOW:
-				Client.ludoMain.getLblPawnYellow().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnYellowEdge.png")));
+//				Client.game.getPlayerYellow().setColor(CommandC.YELLOW);
+//				Client.game.getPlayerYellow().setName(name);
+//				Client.game.getPlayerYellow().setPlayerId(playerID);
+//				if(playerID == 1) {
+//					Client.game.getPlayerYellow().setOnTurn(true);;
+//				}
+				Client.ludoMain.getLblPawnYellow().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnYellowR.png")));
 				break;
 
 			default:
@@ -146,7 +182,30 @@ public class RunExecutes {
 		}
 		if(codeAll == 2) {
 			
+			switch(Client.game.getPlayerYou().getColor()) {
 			
+			case CommandC.RED:
+				Client.game.setPlayerRed( Client.game.getPlayerYou());
+				break;
+				
+			case CommandC.BLUE:
+				Client.game.setPlayerRed( Client.game.getPlayerYou());
+				break;
+				
+			case CommandC.GREEN:
+				Client.game.setPlayerRed( Client.game.getPlayerYou());
+				break;
+				
+			case CommandC.YELLOW:
+				Client.game.setPlayerRed( Client.game.getPlayerYou());
+				break;
+				
+			default:
+				break;
+			}
+			
+//			setPlayers();
+
 			/*
 			 * 	ovde ima dosta setovanjza za novu igru
 			 */
@@ -155,6 +214,193 @@ public class RunExecutes {
 		}
 		
 		
+	}
+
+	/*
+	 * 	pomocu ove metode se setuje ludoGame, dodeljuju se boje mesta....
+	 */
+	private void setPlayers() {
+		
+		switch(Client.game.getPlayerYou().getColor()) {
+			
+		case CommandC.RED:
+			Client.ludoGame.getLblPlayerYou().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Rededge (6).png")));;
+			break;
+			
+		case CommandC.BLUE:
+			Client.ludoGame.getLblPlayerYou().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Blueedge (5).png")));
+			break;
+			
+		case CommandC.GREEN:
+			Client.ludoGame.getLblPlayerYou().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Greenedge (8).png")));
+			break;
+			
+		case CommandC.YELLOW:
+			Client.ludoGame.getLblPlayerYou().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Yellowedge (7).png")));
+			break;
+			
+		default:
+			break;
+		}
+		
+		Client.ludoGame.getLblNamePlayerYou().setText(Client.game.getPlayerYou().getName());
+		
+		// nas klijent je zavrsen
+		
+		//int[] niz = {Client.game.getPlayerRed().getPlayerId(), Client.game.getPlayerBlue().getPlayerId(), Client.game.getPlayerGreen().getPlayerId(), Client.game.getPlayerYellow().getPlayerId()};
+		
+		int[] array = new int[4];
+		int counter = 0;
+		
+		if(Client.game.getPlayerRed().getPlayerId() != -1) {
+			array[counter] = Client.game.getPlayerRed().getPlayerId();
+			counter++;
+		}
+		
+		if(Client.game.getPlayerBlue().getPlayerId() != -1) {
+			array[counter] = Client.game.getPlayerBlue().getPlayerId();
+			counter++;
+		}
+		
+		if(Client.game.getPlayerGreen().getPlayerId() != -1) {
+			array[counter] = Client.game.getPlayerGreen().getPlayerId();
+			counter++;
+		}
+		
+		if(Client.game.getPlayerYellow().getPlayerId() != -1) {
+			array[counter] = Client.game.getPlayerYellow().getPlayerId();
+			counter++;
+		}
+		
+		// izbacujem iz niza sebe jer sam ja sebe vec setovo
+		
+		for(int i = 0; i < counter; i++) {
+			if(array[i] == Client.game.getPlayerYou().getPlayerId()) {
+				array[i] = 100;
+			}
+		}
+		
+		// obavezno vodi racuna da iskljucujem uvek 100 iz niza
+		
+		int min = array[0];
+		int pom = counter;
+		int pom2 = 0;
+		
+		
+		while(pom > 0) {
+			
+			for(int i = 0; i < counter; i++) {
+				if(array[i] < min) {
+					if(array[i] != 100) {
+						min = array[i];
+						array[i] = 100;
+						break;
+					}
+				}
+			}
+			
+			if(pom2 == 0) {
+				PlayerC p = returnPlayer(min);
+				System.out.println(min);
+				
+				
+				switch(p.getColor()) {
+				
+				case CommandC.RED:
+					Client.ludoGame.getLblPlayer2().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Rededge (6).png")));
+					break;
+				
+				case CommandC.BLUE:
+					Client.ludoGame.getLblPlayer2().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Blueedge (5).png")));
+					break;
+					
+				case CommandC.GREEN:
+					Client.ludoGame.getLblPlayer2().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Greenedge (8).png")));
+					break;
+					
+				case CommandC.YELLOW:
+					Client.ludoGame.getLblPlayer2().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Yellowedge (7).png")));
+					break;
+				}
+				Client.ludoGame.getLblNamePlayer2().setText(p.getName());
+				pom2++;
+			}
+			
+			if(pom2 == 1) {
+				
+				PlayerC p = returnPlayer(min);
+				
+				switch(p.getColor()) {
+				
+				case CommandC.RED:
+					Client.ludoGame.getLblPlayer3().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Rededge (6).png")));
+					break;
+				
+				case CommandC.BLUE:
+					Client.ludoGame.getLblPlayer3().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Blueedge (5).png")));
+					break;
+					
+				case CommandC.GREEN:
+					Client.ludoGame.getLblPlayer3().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Greenedge (8).png")));
+					break;
+					
+				case CommandC.YELLOW:
+					Client.ludoGame.getLblPlayer3().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Yellowedge (7).png")));
+					break;
+				}
+				Client.ludoGame.getLblNamePlayer3().setText(p.getName());
+				pom2++;
+			}
+			
+			if(pom2 == 2) {
+				
+				PlayerC p = returnPlayer(min);
+				
+				switch(p.getColor()) {
+				
+				case CommandC.RED:
+					Client.ludoGame.getLblPlayer4().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Rededge (6).png")));
+					break;
+				
+				case CommandC.BLUE:
+					Client.ludoGame.getLblPlayer4().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Blueedge (5).png")));
+					break;
+					
+				case CommandC.GREEN:
+					Client.ludoGame.getLblPlayer4().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Greenedge (8).png")));
+					break;
+					
+				case CommandC.YELLOW:
+					Client.ludoGame.getLblPlayer4().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Yellowedge (7).png")));
+					break;
+				}
+				Client.ludoGame.getLblNamePlayer4().setText(p.getName());
+
+				pom2++;
+			}
+			pom--;
+		}
+
+	
+	}
+
+
+	private PlayerC returnPlayer(int playerID) {
+		
+		if(Client.game.getPlayerGreen().getPlayerId() == playerID) {
+			return Client.game.getPlayerGreen();
+		}
+		if(Client.game.getPlayerRed().getPlayerId() == playerID) {
+			return Client.game.getPlayerRed();
+		}
+		if(Client.game.getPlayerBlue().getPlayerId() == playerID) {
+			return Client.game.getPlayerBlue();
+		}
+		if(Client.game.getPlayerYellow().getPlayerId() == playerID) {
+			return Client.game.getPlayerYellow();
+		}
+		
+		return null;
 	}
 
 
@@ -208,19 +454,19 @@ public class RunExecutes {
 			switch(colour) {
 			
 			case CommandC.RED:
-					Client.ludoMain.getLblPawnRed().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedEdge.png")));
+					Client.ludoMain.getLblPawnRed().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedS.png")));
 				break;
 				
 			case CommandC.BLUE:
-				Client.ludoMain.getLblPawnBlue().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnBlueEdge.png")));
+				Client.ludoMain.getLblPawnBlue().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnBlueS.png")));
 				break;
 				
 			case CommandC.GREEN:
-				Client.ludoMain.getLblPawnGreen().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnGreenEdge.png")));
+				Client.ludoMain.getLblPawnGreen().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnGreenS.png")));
 				break;
 
 			case CommandC.YELLOW:
-				Client.ludoMain.getLblPawnYellow().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnYellowEdge.png")));
+				Client.ludoMain.getLblPawnYellow().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnYellowS.png")));
 				break;
 
 			default:

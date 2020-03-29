@@ -112,6 +112,8 @@ public class ServerThread extends Thread {
 	
 	
 	private void play() throws IOException, InterruptedException {
+		
+		// ovde ima mnogo gresaka
 
 		while (dataIn.available() == 0) {
 			Thread.sleep(10);
@@ -125,12 +127,27 @@ public class ServerThread extends Thread {
 
 		// ovde treba neka cekajuca za read line
 		String name = textIn.readLine();
+		System.out.println(name);
 		
 		for(int i = 0; i < 10; i++) {	
 			if(Server.games[i].getRoomID() == roomID) {
 				Server.games[i].getPlayers()[playerID - 1].setName(name);
 				Server.games[i].getPlayers()[playerID - 1].setReady(true);
 				send_to_players_in_game(CommandS.PLAY, Server.games[i].getPlayers()[playerID - 1].getColor(), 1); // 1 = taj player je spreman, menja se ikonica pijuna
+				
+				
+//				// -->
+//				// svi dobijaju informacije o ovom novom koji je spreman
+//				for(int k = 0; k <= 39; k++) {
+//					
+//					if(clients[k] != null && clients[k].getRoomID() == roomID) {
+//						
+//						clients[k].dataOut.writeInt(playerID);
+//						clients[k].textOut.println(name);
+//					}
+//				}
+//			} else {
+//				send_to_players_in_game(CommandS.PLAY, Server.games[i].getPlayers()[playerID - 1].getColor(), 5);
 			}
 		}
 		all_is_readi(roomID, playerID);
@@ -149,13 +166,18 @@ public class ServerThread extends Thread {
 				}
 				
 				if(pom == Server.games[i].getNumberOfPlayers()) {
+					// ako sam usao ovde onda se igra pokrece
+					// saljem klijentu sve potrebne informacije u vezi setovanja table
+					
 					for(int k = 0; k <= 39; k++) {
 						
 						if(clients[k] != null && clients[k].getRoomID() == roomID) {
 							
 							clients[k].dataOut.writeInt(2);	// 2 svi su spremni krece igra
+							
 						}
 					}
+					
 				} else {
 					for(int k = 0; k <= 39; k++) {
 						

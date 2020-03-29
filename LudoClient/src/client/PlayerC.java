@@ -5,7 +5,7 @@ public class PlayerC {
 	private String name;
 	private int color = 0;
 	private boolean isOnTurn;
-	private int playerId;	//	mozda treba izbrisati
+	private int playerId = -1;	//	mozda treba izbrisati, ako je -1 tada taj igrac nije u igri
 	
 	private PawnC[] pawns = new PawnC[4];
 

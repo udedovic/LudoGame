@@ -57,8 +57,6 @@ public class Client implements Runnable {
 			try {
 				
 				game.make_game(); // pravimo pijune i grace
-				System.out.println(game.getPlayerRed().getPawns()[0].getCoordinatePawn_x());
-				System.out.println(game.getPlayerRed().getPawns()[0].getColor());
 				
 				ludoStart.setVisible(true);	// pokrecemo gui
 				

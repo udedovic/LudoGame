@@ -151,7 +151,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblBoard;
 	}
-	private JLabel getLblPlayerYou() {
+	public JLabel getLblPlayerYou() {
 		if (lblPlayerYou == null) {
 			lblPlayerYou = new JLabel("");
 			lblPlayerYou.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Rededge (6).png")));
@@ -159,7 +159,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPlayerYou;
 	}
-	private JLabel getLblPlayer2() {
+	public JLabel getLblPlayer2() {
 		if (lblPlayer2 == null) {
 			lblPlayer2 = new JLabel("");
 			lblPlayer2.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Blueedge (5).png")));
@@ -167,7 +167,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPlayer2;
 	}
-	private JLabel getLblPlayer3() {
+	public JLabel getLblPlayer3() {
 		if (lblPlayer3 == null) {
 			lblPlayer3 = new JLabel("");
 			lblPlayer3.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Greenedge (8).png")));
@@ -175,7 +175,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPlayer3;
 	}
-	private JLabel getLblPlayer4() {
+	public JLabel getLblPlayer4() {
 		if (lblPlayer4 == null) {
 			lblPlayer4 = new JLabel("");
 			lblPlayer4.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Yellowedge (7).png")));
@@ -343,7 +343,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnGreen4;
 	}
-	private JLabel getLblNamePlayerYou() {
+	public JLabel getLblNamePlayerYou() {
 		if (lblNamePlayerYou == null) {
 			lblNamePlayerYou = new JLabel("player1");
 			lblNamePlayerYou.setForeground(new Color(255, 255, 0));
@@ -353,7 +353,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblNamePlayerYou;
 	}
-	private JLabel getLblNamePlayer2() {
+	public JLabel getLblNamePlayer2() {
 		if (lblNamePlayer2 == null) {
 			lblNamePlayer2 = new JLabel("player2");
 			lblNamePlayer2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -363,7 +363,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblNamePlayer2;
 	}
-	private JLabel getLblNamePlayer3() {
+	public JLabel getLblNamePlayer3() {
 		if (lblNamePlayer3 == null) {
 			lblNamePlayer3 = new JLabel("player3");
 			lblNamePlayer3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -373,7 +373,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblNamePlayer3;
 	}
-	private JLabel getLblNamePlayer4() {
+	public JLabel getLblNamePlayer4() {
 		if (lblNamePlayer4 == null) {
 			lblNamePlayer4 = new JLabel("player4");
 			lblNamePlayer4.setHorizontalAlignment(SwingConstants.CENTER);

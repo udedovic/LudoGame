@@ -34,10 +34,8 @@ public class LudoMain extends JFrame {
 	private static JLabel lblPawnYellow;
 	private JLabel lblEdge;
 	private JLabel lblPlay;
-	private JLabel lblServer;
 	private JLabel lblSetings;
 	private JLabel lblSetingsBackground;
-	private JLabel lblServerBackground;
 
 	private int selectedColor;
 	
@@ -89,10 +87,8 @@ public class LudoMain extends JFrame {
 		contentPane.add(getLblPawnYellow());
 		contentPane.add(getLblEdge());
 		contentPane.add(getLblPlay());
-		contentPane.add(getLblServer());
 		contentPane.add(getLblSetings());
 		contentPane.add(getLblSetingsBackground());
-		contentPane.add(getLblServerBackground());
 		contentPane.add(getLblBackground());
 	}
 	private JLabel getLblName() {
@@ -145,7 +141,7 @@ public class LudoMain extends JFrame {
 				}
 			});
 			lblPawnBlue.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnBlue.png")));
-			lblPawnBlue.setBounds(124, 181, 100, 141);
+			lblPawnBlue.setBounds(124, 206, 100, 141);
 		}
 		return lblPawnBlue;
 	}
@@ -163,7 +159,7 @@ public class LudoMain extends JFrame {
 				}
 			});
 			lblPawnRed.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnRed.png")));
-			lblPawnRed.setBounds(19, 181, 100, 141);
+			lblPawnRed.setBounds(19, 206, 100, 141);
 		}
 		return lblPawnRed;
 	}
@@ -181,7 +177,7 @@ public class LudoMain extends JFrame {
 				}
 			});
 			lblPawnGreen.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnGreen.png")));
-			lblPawnGreen.setBounds(225, 181, 100, 141);
+			lblPawnGreen.setBounds(225, 206, 100, 141);
 		}
 		return lblPawnGreen;
 	}
@@ -199,7 +195,7 @@ public class LudoMain extends JFrame {
 				}
 			});
 			lblPawnYellow.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnYellow.png")));
-			lblPawnYellow.setBounds(332, 181, 100, 141);
+			lblPawnYellow.setBounds(332, 206, 100, 141);
 		}
 		return lblPawnYellow;
 	}
@@ -217,7 +213,7 @@ public class LudoMain extends JFrame {
 			lblPlay.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					if(textName == null || textName.equals("")) {
+					if(textName.getText() == null || textName.getText().equals("")) {
 						JOptionPane.showMessageDialog(LudoMain.this, "Please enter name", "error", JOptionPane.ERROR_MESSAGE);
 						return;
 					}
@@ -232,25 +228,30 @@ public class LudoMain extends JFrame {
 					ClientExecute.setSendingCode(CommandC.PLAY);
 
 				}
+				
+				/*
+				 * 	pomeranje play kada je mis na njemu
+				 */
+				@Override
+				public void mouseEntered(MouseEvent arg0) {
+					lblPlay.setBounds(147, 355, 173, 83);
+				}
+				
+				@Override
+				public void mouseExited(MouseEvent e) {
+					lblPlay.setBounds(147, 360, 173, 83);
+				}
 			});
 			lblPlay.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/play1.png")));
-			lblPlay.setBounds(147, 335, 173, 83);
+			lblPlay.setBounds(147, 360, 173, 83);
 		}
 		return lblPlay;
-	}
-	private JLabel getLblServer() {
-		if (lblServer == null) {
-			lblServer = new JLabel("");
-			lblServer.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/server.png")));
-			lblServer.setBounds(255, 458, 131, 54);
-		}
-		return lblServer;
 	}
 	private JLabel getLblSetings() {
 		if (lblSetings == null) {
 			lblSetings = new JLabel("");
 			lblSetings.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/settingsFinal.png")));
-			lblSetings.setBounds(46, 458, 160, 53);
+			lblSetings.setBounds(157, 474, 160, 53);
 		}
 		return lblSetings;
 	}
@@ -258,16 +259,8 @@ public class LudoMain extends JFrame {
 		if (lblSetingsBackground == null) {
 			lblSetingsBackground = new JLabel("");
 			lblSetingsBackground.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/setingsBackFinal.png")));
-			lblSetingsBackground.setBounds(36, 447, 170, 65);
+			lblSetingsBackground.setBounds(147, 467, 170, 65);
 		}
 		return lblSetingsBackground;
-	}
-	private JLabel getLblServerBackground() {
-		if (lblServerBackground == null) {
-			lblServerBackground = new JLabel("");
-			lblServerBackground.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/setingsBackFinal.png")));
-			lblServerBackground.setBounds(232, 447, 170, 65);
-		}
-		return lblServerBackground;
 	}
 }
