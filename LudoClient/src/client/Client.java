@@ -67,8 +67,6 @@ public class Client implements Runnable {
 				}
 					
 					
-				System.out.println("1");
-					
 					socket = new Socket(address, port);
 					
 					new Thread(new Client()).start();
@@ -96,6 +94,7 @@ public class Client implements Runnable {
 	public void run() {
 		
 		RunExecutes runExecutes = new RunExecutes();
+		
 		try {
 			
 			runExecutes.runExecutes();

@@ -13,6 +13,7 @@ public class CommandC {
 	public static final int GO_START = 11;
 	public static final int CREATE_ROOM = 12;
 	public static final int SEND_COLOR = 13;
+	public static final int PLAY = 14;
 	
 	
 	

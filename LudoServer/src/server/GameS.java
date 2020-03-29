@@ -45,7 +45,7 @@ public class GameS {
 		
 	}
 	
-	public void make_blue_green(int playerID) {
+	public void make_green_pawns(int playerID) {
 		
 		PawnS p1 = new PawnS(CommandS.GREEN, 1, 100, 835, 550);
 		PawnS p2 = new PawnS(CommandS.GREEN, 2, 101, 933, 550);
@@ -59,7 +59,7 @@ public class GameS {
 		
 	}
 	
-	public void make_red_yellow(int playerID) {
+	public void make_yelow_pawns(int playerID) {
 		
 		PawnS p1 = new PawnS(CommandS.YELLOW, 1, 88, 372, 85);
 		PawnS p2 = new PawnS(CommandS.YELLOW, 2, 89, 470, 85);

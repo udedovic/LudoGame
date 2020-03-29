@@ -12,13 +12,27 @@ import javax.swing.JOptionPane;
 
 public class RunExecutes {
 	
-	private static DataInputStream dataIn = null;
-	private static BufferedReader textIn = null;
+	private DataInputStream dataIn = null;
+	private BufferedReader textIn = null;
 	
 	private int receivedCode = CommandC.NOTHING_TO_DO;
 	private int dataInteger;
 	private String dataText = null;
 	
+	// pomocni atributi
+	
+	private static boolean colorIsSelected = false;
+
+	public static boolean isColorIsSelected() {
+		return colorIsSelected;
+	}
+
+
+	public static void setColorIsSelected(boolean colorIsSelected) {
+		RunExecutes.colorIsSelected = colorIsSelected;
+	}
+
+
 	void runExecutes() throws IOException, InterruptedException {
 		
 		try {
@@ -37,9 +51,11 @@ public class RunExecutes {
 		
 		while(!GameC.isEndOfGame()) {
 			
-			while (dataIn.available() == 0);
+			while (dataIn.available() == 0) {
+				Thread.sleep(10);
+			}
 			receivedCode = dataIn.readInt();
-			System.out.println("proba");
+			System.out.println("primio odgovor - klijent");
 			
 			switch(receivedCode) {
 			
@@ -68,6 +84,11 @@ public class RunExecutes {
 				receivedCode = CommandC.NOTHING_TO_DO;
 				break;
 				
+			case CommandC.PLAY:
+				play();
+				receivedCode = CommandC.NOTHING_TO_DO;
+				break;
+				
 			default:
 				receivedCode = CommandC.NOTHING_TO_DO;
 				break;
@@ -80,12 +101,73 @@ public class RunExecutes {
 	}
 	
 	
-	private void send_color() throws IOException {
+	private void play() throws IOException, InterruptedException {
 		
-		while (dataIn.available() == 0);
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
+		int color = dataIn.readInt();
+		
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
+		int code = dataIn.readInt();
+		
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
+		int codeAll = dataIn.readInt();
+		
+		//	ako je 1 onda je jedan novi spreman, ako je 2 onda su svi spremni
+		if(code == 1) {
+			// na osnovu boje menja se ikonica onih koji su spremni
+			switch(color) {
+			
+			case CommandC.RED:
+				Client.ludoMain.getLblPawnRed().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedEdge.png")));
+				break;
+				
+			case CommandC.BLUE:
+				Client.ludoMain.getLblPawnBlue().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnBlueEdge.png")));
+				break;
+				
+			case CommandC.GREEN:
+				Client.ludoMain.getLblPawnGreen().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnGreenEdge.png")));
+				break;
+
+			case CommandC.YELLOW:
+				Client.ludoMain.getLblPawnYellow().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnYellowEdge.png")));
+				break;
+
+			default:
+				break;
+			
+			}
+		}
+		if(codeAll == 2) {
+			
+			
+			/*
+			 * 	ovde ima dosta setovanjza za novu igru
+			 */
+			Client.ludoMain.setVisible(false);
+			Client.ludoGame.setVisible(true);
+		}
+		
+		
+	}
+
+
+	private void send_color() throws IOException, InterruptedException {
+		
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		int palayerID = dataIn.readInt();
 		
-		while (dataIn.available() == 0);
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		int colour = dataIn.readInt();
 		
 		if(palayerID == Client.game.getPlayerYou().getPlayerId()) {
@@ -93,11 +175,13 @@ public class RunExecutes {
 			// za sada ce izgledati isto jer treba ubaciti nove ikonice za te slucajeve
 			
 			Client.game.getPlayerYou().setColor(colour);
+			colorIsSelected = true;
+			
 			
 			switch(colour) {
 			
 			case CommandC.RED:
-					Client.ludoMain.getLblPawnRed().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedEdge.png")));
+				Client.ludoMain.getLblPawnRed().setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedEdge.png")));
 				break;
 				
 			case CommandC.BLUE:
@@ -148,9 +232,11 @@ public class RunExecutes {
 	}
 
 
-	private void go_start() throws IOException {
+	private void go_start() throws IOException, InterruptedException {
 		
-		while (dataIn.available() == 0);
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		int palayerID = dataIn.readInt();
 		
 		//	sstigo sam dovde 26.3.
@@ -176,9 +262,11 @@ public class RunExecutes {
 	 * 	sve greske prvo salju error kod, a drugi kod se gleda u ovom svicu i na osnovu njega izlai poruka
 	 * 
 	 */
-	private void error() throws IOException {
+	private void error() throws IOException, InterruptedException {
 		
-		while (dataIn.available() == 0);
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		dataInteger = dataIn.readInt();
 		
 		switch(dataInteger) {
@@ -204,9 +292,11 @@ public class RunExecutes {
 	/*
 	 * 	citam sa servera roomID, upisujem ga objekat game na klijentu
 	 */
-	private void create_room() throws IOException {
+	private void create_room() throws IOException, InterruptedException {
 		
-		while (dataIn.available() == 0);
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		dataInteger = dataIn.readInt();
 		
 		GameC.setRoomID(dataInteger);
@@ -220,8 +310,10 @@ public class RunExecutes {
 		
 	}
 
-	private void throw_dice() throws IOException {
-		while (dataIn.available() == 0);
+	private void throw_dice() throws IOException, InterruptedException {
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		dataInteger = dataIn.readInt();
 		System.out.println(dataInteger);	// ovo se brise
 		

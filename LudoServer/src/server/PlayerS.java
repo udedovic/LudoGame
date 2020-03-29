@@ -5,14 +5,25 @@ public class PlayerS {
 	
 	private String name;
 	private int color = 0;
-	private boolean isOnTurn;
+	private boolean isOnTurn = false;
 	private int playerId;
+	private boolean isReady = false; // koristi se samo za prelaz sa main menua na ludo game
 	
 	private PawnS[] pawns = new PawnS[4];
 
 	public PlayerS(int playerId) {
 		super();
 		this.playerId = playerId;
+	}
+	
+	
+
+	public boolean isReady() {
+		return isReady;
+	}
+
+	public void setReady(boolean isReady) {
+		this.isReady = isReady;
 	}
 
 	public String getName() {

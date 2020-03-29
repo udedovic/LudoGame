@@ -217,17 +217,20 @@ public class LudoMain extends JFrame {
 			lblPlay.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-//					if(textName == null || textName.equals("")) {
-//						JOptionPane.showMessageDialog(LudoMain.this, "Please enter name", "error", JOptionPane.ERROR_MESSAGE);
-//						return;
-//					}
-//					
-//					if(selectedColor == null) {
-//						JOptionPane.showMessageDialog(LudoMain.this, "Please select color", "error", JOptionPane.ERROR_MESSAGE);
-//						return;
-//					}
-//					ClientThreadImpl.setNameOfPlayer(textName.getText());
-//					ClientThreadImpl.setColorOfPlayer(selectedColor);
+					if(textName == null || textName.equals("")) {
+						JOptionPane.showMessageDialog(LudoMain.this, "Please enter name", "error", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+					
+					if(RunExecutes.isColorIsSelected() == false) {
+						JOptionPane.showMessageDialog(LudoMain.this, "Please select color", "error", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+					
+					Client.game.getPlayerYou().setName(textName.getText());
+
+					ClientExecute.setSendingCode(CommandC.PLAY);
+
 				}
 			});
 			lblPlay.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/play1.png")));

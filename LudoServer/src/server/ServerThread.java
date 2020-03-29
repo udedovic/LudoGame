@@ -14,9 +14,9 @@ import com.sun.security.ntlm.Client;
 public class ServerThread extends Thread {
 	
 	private DataOutputStream dataOut = null;
-	private static DataInputStream dataIn = null;
-	private static PrintStream textOut = null;
-	private static BufferedReader textIn = null;
+	private DataInputStream dataIn = null;
+	private PrintStream textOut = null;
+	private BufferedReader textIn = null;
 	
 	Socket socketForCom = null;
 	ServerThread[] clients;
@@ -56,7 +56,9 @@ public class ServerThread extends Thread {
 				 * 	klijentima obavestenje o tome
 				 */
 				
-				while (dataIn.available() == 0);
+				while (dataIn.available() == 0) {
+					Thread.sleep(10);
+				}
 				receivedCode = dataIn.readInt();
 				
 				switch(receivedCode) {
@@ -77,12 +79,13 @@ public class ServerThread extends Thread {
 					send_colour();
 					break;
 					
+				case CommandS.PLAY:
+					System.out.println("Server 1");
+					play();
+					break;
+					
 				default:
 					break;
-				
-				
-				
-				
 				
 				
 				
@@ -92,6 +95,9 @@ public class ServerThread extends Thread {
 			}
 			
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -105,15 +111,85 @@ public class ServerThread extends Thread {
 	}
 	
 	
-	private void send_colour() throws IOException {
+	private void play() throws IOException, InterruptedException {
+
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
+		int roomID = dataIn.readInt();
+
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
+		int playerID = dataIn.readInt();
+
+		// ovde treba neka cekajuca za read line
+		String name = textIn.readLine();
 		
-		while (dataIn.available() == 0);
+		for(int i = 0; i < 10; i++) {	
+			if(Server.games[i].getRoomID() == roomID) {
+				Server.games[i].getPlayers()[playerID - 1].setName(name);
+				Server.games[i].getPlayers()[playerID - 1].setReady(true);
+				send_to_players_in_game(CommandS.PLAY, Server.games[i].getPlayers()[playerID - 1].getColor(), 1); // 1 = taj player je spreman, menja se ikonica pijuna
+			}
+		}
+		all_is_readi(roomID, playerID);
+	}
+
+	private void all_is_readi(int roomID, int playerID) throws IOException {
+		
+		for(int i = 0; i < 10; i++) {	
+			if(Server.games[i].getRoomID() == roomID) {
+				
+				int pom = 0;
+				for(int j = 0; j < 4; j++) {
+					if(Server.games[i].getPlayers()[j] != null && Server.games[i].getPlayers()[j].isReady() == true) {
+						pom++;
+					}
+				}
+				
+				if(pom == Server.games[i].getNumberOfPlayers()) {
+					for(int k = 0; k <= 39; k++) {
+						
+						if(clients[k] != null && clients[k].getRoomID() == roomID) {
+							
+							clients[k].dataOut.writeInt(2);	// 2 svi su spremni krece igra
+						}
+					}
+				} else {
+					for(int k = 0; k <= 39; k++) {
+						
+						if(clients[k] != null && clients[k].getRoomID() == roomID) {
+							
+							clients[k].dataOut.writeInt(3);	// 3 NISU SPREMNI
+						}
+					}
+					
+				}
+				
+			}
+				
+		}
+		
+		
+		
+	}
+
+	private void send_colour() throws IOException, InterruptedException {
+		
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		int roomID = dataIn.readInt();
 		
-		while (dataIn.available() == 0);
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		int playerID = dataIn.readInt();
 		
-		while (dataIn.available() == 0);
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		int color = dataIn.readInt();
 		
 		for(int i = 0; i < 10; i++) {	
@@ -126,6 +202,23 @@ public class ServerThread extends Thread {
 					}
 				}
 				if(pom == 0) {
+					
+					/*
+					 * 	pravimo objekte pijuna za izabranu boju
+					 */
+					if(color == CommandS.RED) {
+						Server.games[i].make_red_pawns(playerID);
+					}
+					if(color == CommandS.BLUE) {
+						Server.games[i].make_blue_pawns(playerID);
+					}
+					if(color == CommandS.GREEN) {
+						Server.games[i].make_green_pawns(playerID);
+					}
+					if(color == CommandS.YELLOW) {
+						Server.games[i].make_yelow_pawns(playerID);
+					}
+					
 					Server.games[i].getPlayers()[playerID - 1].setColor(color);
 					send_to_players_in_game(CommandS.SEND_COLOR, playerID, color); // ako je sve proslo ok
 					
@@ -147,16 +240,18 @@ public class ServerThread extends Thread {
 	 *	u ovoj metodi proveravamo da li soba posroji, ako ne saljemo gresku, ako da pravimo novog igraca i ubacujemo ga u igru
 	 *	koja se poklapa sa brojom sobe, ako je usao prvi u sobu on je prvi na potezu 
 	 */
-	private void go_start() throws IOException {
+	private void go_start() throws IOException, InterruptedException {
 		
-		while (dataIn.available() == 0);
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
 		int room = dataIn.readInt();
 
 		
 		for(int i = 0; i < 10; i++) {	
 			if(Server.games[i].getRoomID() == room) {
 				
-				if(Server.games[i].getNumberOfPlayers() < 3) {
+				if(Server.games[i].getNumberOfPlayers() < 4) {
 					
 					PlayerS player = new PlayerS(Server.games[i].getNumberOfPlayers() + 1);
 					

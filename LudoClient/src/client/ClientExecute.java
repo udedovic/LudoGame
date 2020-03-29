@@ -13,9 +13,9 @@ public class ClientExecute {
 	
 	private static int sendingCode = CommandC.NOTHING_TO_DO;
 	
-	private static DataOutputStream dataOut = null;
-	private static PrintStream textOut = null;
-	private static int click;
+	private DataOutputStream dataOut = null;
+	private PrintStream textOut = null;
+
 	
 	
 	void clientExecutes() throws IOException, InterruptedException {
@@ -37,10 +37,12 @@ public class ClientExecute {
 		while(!GameC.isEndOfGame()) {
 			
 			// dodajemo while koji se vrti sve svreme dok se ne klikne na bilo koji gui
-			Thread.sleep(200);
+			Thread.sleep(10);
 			//ovde umesto uspavljivanja treba staviti neku cekajucu metodu
 			
 			if(sendingCode != CommandC.NOTHING_TO_DO) {
+				
+				System.out.println("poslao nesto - klijent");
 				
 				switch(sendingCode) {
 				
@@ -61,24 +63,29 @@ public class ClientExecute {
 					break;
 					
 				case CommandC.SEND_COLOR:
-					dataOut.writeInt(CommandC.SEND_COLOR);
-					dataOut.writeInt(GameC.getRoomID());
-					dataOut.writeInt(Client.game.getPlayerYou().getPlayerId());
-					dataOut.writeInt(Client.ludoMain.getSelectedColor());
+					if(RunExecutes.isColorIsSelected() == false) {
+						dataOut.writeInt(CommandC.SEND_COLOR);
+						dataOut.writeInt(GameC.getRoomID());
+						dataOut.writeInt(Client.game.getPlayerYou().getPlayerId());
+						dataOut.writeInt(Client.ludoMain.getSelectedColor());
+					}
 					sendingCode = CommandC.NOTHING_TO_DO;
 					break;
+					
+				case CommandC.PLAY:
+					dataOut.writeInt(CommandC.PLAY);
+					dataOut.writeInt(GameC.getRoomID());
+					dataOut.writeInt(Client.game.getPlayerYou().getPlayerId());
+					textOut.println(Client.game.getPlayerYou().getName());
+					System.out.println("proso");
+					sendingCode = CommandC.NOTHING_TO_DO;
+					break;
+
 					
 					
 				default:
 					sendingCode = CommandC.NOTHING_TO_DO;
 					break;
-				
-				
-				
-				
-				
-				
-				
 				}
 		
 			}
