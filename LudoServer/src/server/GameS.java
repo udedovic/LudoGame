@@ -1,6 +1,5 @@
 package server;
 
-
 public class GameS {
 	
 	private boolean endOfGame = false;	// ovo ne sme da bude static kao na klijentu
@@ -8,15 +7,68 @@ public class GameS {
 	private int numberOfPlayers = 0;
 	private int playersOnTurn; 	// playerID
 	private float timeInGame;
+	private int round = 1;
+	private Node first;
+
 	
 	PlayerS[] players = new PlayerS[4];
 
 	FieldS[] fields = new FieldS[104];
 	
+
+	public boolean emptyList() {
+		return first == null;
+	}
+	
+	public void addElementOnBeginning(int a) {
+		first = new Node(a, first);
+	}
+	
+	public void addElementToEnd(int a) {
+		if (emptyList()) {
+			addElementOnBeginning(a);
+			return;
+		}
+		Node pom = first;
+		while (pom.next != null)
+			pom = pom.next;
+		Node novi = new Node(a, null);
+		pom.next = novi;
+		}
+	
+	
+	public void inicialization() {
+		addElementToEnd(CommandS.BLUE);
+		addElementToEnd(CommandS.YELLOW);
+		addElementToEnd(CommandS.RED);
+		addElementToEnd(CommandS.GREEN);
+		Node pom = first;
+		pom.next.next.next.next = first;
+	}
+	
+	
+//	public void ispisi() {
+//		if (emptyList())
+//			return;
+//		Node pom = first;
+//		while (pom != null) {
+//			System.out.println(pom.colour);
+//			pom = pom.next;
+//		}
+//	}
+	
+//	public static void main(String[] args) {
+//		GameS gs = new GameS();
+//		gs.inicialization();
+////	gs.ispisi();
+//	}
+	
 	
 	/*
 	 * 	poziva se po izboru boje za igraca, pravimo objekte pawns
 	 */
+	
+	
 	public void make_red_pawns(int playerID) {
 		
 		PawnS p1 = new PawnS(CommandS.RED, 1, 92, 835, 85);
@@ -389,5 +441,22 @@ public class GameS {
 	public void setPlayers(PlayerS[] players) {
 		this.players = players;
 	}
+	
+	public Node getFirst() {
+		return first;
+	}
+
+	public void setFirst(Node first) {
+		this.first = first;
+	}
+
+	public int getRound() {
+		return round;
+	}
+
+	public void setRound(int round) {
+		this.round = round;
+	}
+	
 	
 }
