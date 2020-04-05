@@ -58,6 +58,7 @@ public class LudoGame extends JFrame {
 	private JLabel lblSettings;
 	private JLabel lblDiceBackRed;
 	private JLabel lblDiceRed;
+	private JLabel lblChatBack;
 
 	/**
 	 * Launch the application.
@@ -122,6 +123,7 @@ public class LudoGame extends JFrame {
 		contentPane.add(getLblDiceBackRed());
 		contentPane.add(getLblExit());
 		contentPane.add(getLblSettings());
+		contentPane.add(getLblChatBack());
 		contentPane.add(getLblBackgroundGame());
 	}
 	private JLabel getLblBackgroundGame() {
@@ -419,5 +421,13 @@ public class LudoGame extends JFrame {
 			lblDiceRed.setBounds(1131, 190, 90, 90);
 		}
 		return lblDiceRed;
+	}
+	private JLabel getLblChatBack() {
+		if (lblChatBack == null) {
+			lblChatBack = new JLabel("");
+			lblChatBack.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/chat.png")));
+			lblChatBack.setBounds(1409, 480, 37, -52);
+		}
+		return lblChatBack;
 	}
 }
