@@ -574,8 +574,41 @@ public class RunExecutes {
 		while (dataIn.available() == 0) {
 			Thread.sleep(10);
 		}
-		dataInteger = dataIn.readInt();
-		System.out.println(dataInteger); // ovo se brise
+		int color = dataIn.readInt();
+		
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
+		int numberOnDice = dataIn.readInt();
+		
+		if(Client.game.getPlayerYou().getColor() == color) {
+			if(numberOnDice > 6) {
+				//klikni na kockicu
+			}
+			else {
+				//setuj kockicu na broj
+				switch(numberOnDice) {
+				case 1:
+					//slike 
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				default:
+					break;
+				}
+			}
+		}
+		else {
+			//setuj kockicu koja nije tvoje, pre toga proveri da je manje od 6
+		}
 
 	}
 

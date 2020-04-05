@@ -12,6 +12,16 @@ public class Node {
 		this.next = next;
 	}
 	
+	
+	
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	public int getColour() {
 		return colour;
 	}

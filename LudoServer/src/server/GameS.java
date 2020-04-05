@@ -7,6 +7,7 @@ public class GameS {
 	private int numberOfPlayers = 0;
 	private int playersOnTurn; 	// playerID
 	private float timeInGame;
+	private int round = 1;
 	private Node first;
 
 	
@@ -15,7 +16,6 @@ public class GameS {
 	FieldS[] fields = new FieldS[104];
 	
 
-	
 	public boolean emptyList() {
 		return first == null;
 	}
@@ -46,21 +46,22 @@ public class GameS {
 		pom.next.next.next.next = first;
 	}
 	
-	public void ispisi() {
-		if (emptyList())
-			return;
-		Node pom = first;
-		while (pom != null) {
-			System.out.println(pom.colour);
-			pom = pom.next;
-		}
-	}
 	
-	public static void main(String[] args) {
-		GameS gs = new GameS();
-		gs.inicialization();
-		gs.ispisi();
-	}
+//	public void ispisi() {
+//		if (emptyList())
+//			return;
+//		Node pom = first;
+//		while (pom != null) {
+//			System.out.println(pom.colour);
+//			pom = pom.next;
+//		}
+//	}
+	
+//	public static void main(String[] args) {
+//		GameS gs = new GameS();
+//		gs.inicialization();
+////	gs.ispisi();
+//	}
 	
 	
 	/*
@@ -440,5 +441,22 @@ public class GameS {
 	public void setPlayers(PlayerS[] players) {
 		this.players = players;
 	}
+	
+	public Node getFirst() {
+		return first;
+	}
+
+	public void setFirst(Node first) {
+		this.first = first;
+	}
+
+	public int getRound() {
+		return round;
+	}
+
+	public void setRound(int round) {
+		this.round = round;
+	}
+	
 	
 }
