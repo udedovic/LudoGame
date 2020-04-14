@@ -243,8 +243,6 @@ public class ServerThread extends Thread {
 				int diceSignal = dataIn.readInt();
 				int numberOnDice = throw_dice();
 				send_to_players_in_game(CommandS.THROW_DICE, pom.colour, numberOnDice);
-				
-				
 			}
 
 			if (pom.getColour() == CommandS.GREEN) {
