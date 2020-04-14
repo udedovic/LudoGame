@@ -14,7 +14,7 @@ public class CommandS {
 	public static final int CREATE_ROOM = 12;
 	public static final int SEND_COLOR = 13;
 	public static final int PLAY = 14;
-	public static final int GAME = 15;
+	public static final int GAMESTART = 15;
 
 	public static final int ERROR = 404;
 

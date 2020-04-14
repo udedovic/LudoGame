@@ -84,6 +84,11 @@ public class RunExecutes {
 				play();
 				receivedCode = CommandC.NOTHING_TO_DO;
 				break;
+				
+			case CommandC.GAMESTART:
+				gameStart();
+				receivedCode = CommandC.NOTHING_TO_DO;
+				break;
 
 			default:
 				receivedCode = CommandC.NOTHING_TO_DO;
@@ -92,6 +97,37 @@ public class RunExecutes {
 			}
 
 		}
+	}
+
+	private void gameStart() throws IOException, InterruptedException {
+		while (dataIn.available() == 0) {
+			Thread.sleep(10);
+		}
+		int playerColor = dataIn.readInt();
+		
+		switch (playerColor) {
+
+		case CommandC.RED:
+			Client.ludoGame.getLblDiceBackPlayerRed().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDice (5).png")));
+			break;
+
+		case CommandC.BLUE:
+			Client.ludoGame.getLblDiceBackPlayerBlue().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDice (5).png")));
+			break;
+
+		case CommandC.GREEN:
+			Client.ludoGame.getLblDiceBackPlayerGreen().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDice (5).png")));
+			break;
+
+		case CommandC.YELLOW:
+			Client.ludoGame.getLblDiceBackPlayerYellow().setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDice (5).png")));
+			break;
+
+		default:
+			break;
+
+		}
+		
 	}
 
 	private void play() throws IOException, InterruptedException {

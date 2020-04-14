@@ -29,9 +29,9 @@ public class LudoGame extends JFrame {
 	private JLabel lblPlayer2;
 	private JLabel lblPlayer3;
 	private JLabel lblPlayer4;
-	private JLabel lblDiceBackPlayer2;
-	private JLabel lblDiceBackPlayer3;
-	private JLabel lblDiceBackPlayer4;
+	private JLabel lblDiceBackPlayerBlue;
+	private JLabel lblDiceBackPlayerGreen;
+	private JLabel lblDiceBackPlayerYellow;
 	private JLabel lblPawnRed1;
 	private JLabel lblPawnRed2;
 	private JLabel lblPawnRed3;
@@ -57,7 +57,7 @@ public class LudoGame extends JFrame {
 	private JLabel lblDicePlayerYellow;
 	private JLabel lblExit;
 	private JLabel lblSettings;
-	private JLabel lblDiceBackPlayer1;
+	private JLabel lblDiceBackPlayerRed;
 	private JLabel lblDicePlayerRed;
 	private JLabel lblChatBack;
 	private JLabel lblChatName;
@@ -123,10 +123,10 @@ public class LudoGame extends JFrame {
 		contentPane.add(getLblDicePlayerBlue());
 		contentPane.add(getLblDicePlayerGreen());
 		contentPane.add(getLblDicePlayerYellow());
-		contentPane.add(getLblDiceBackPlayer2());
-		contentPane.add(getLblDiceBackPlayer3());
-		contentPane.add(getLblDiceBackPlayer4());
-		contentPane.add(getLblDiceBackPlayer1());
+		contentPane.add(getLblDiceBackPlayerBlue());
+		contentPane.add(getLblDiceBackPlayerGreen());
+		contentPane.add(getLblDiceBackPlayerYellow());
+		contentPane.add(getLblDiceBackPlayerRed());
 		contentPane.add(getLblExit());
 		contentPane.add(getLblSettings());
 		contentPane.add(getLblDeleteChat());
@@ -191,31 +191,31 @@ public class LudoGame extends JFrame {
 		return lblPlayer4;
 	}
 
-	private JLabel getLblDiceBackPlayer2() {
-		if (lblDiceBackPlayer2 == null) {
-			lblDiceBackPlayer2 = new JLabel("");
-			lblDiceBackPlayer2.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDice (5).png")));
-			lblDiceBackPlayer2.setBounds(55, 575, 150, 150);
+	public JLabel getLblDiceBackPlayerBlue() {
+		if (lblDiceBackPlayerBlue == null) {
+			lblDiceBackPlayerBlue = new JLabel("");
+			lblDiceBackPlayerBlue.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
+			lblDiceBackPlayerBlue.setBounds(55, 575, 150, 150);
 		}
-		return lblDiceBackPlayer2;
+		return lblDiceBackPlayerBlue;
 	}
 
-	private JLabel getLblDiceBackPlayer3() {
-		if (lblDiceBackPlayer3 == null) {
-			lblDiceBackPlayer3 = new JLabel("");
-			lblDiceBackPlayer3.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
-			lblDiceBackPlayer3.setBounds(1100, 575, 150, 150);
+	public JLabel getLblDiceBackPlayerGreen() {
+		if (lblDiceBackPlayerGreen == null) {
+			lblDiceBackPlayerGreen = new JLabel("");
+			lblDiceBackPlayerGreen.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
+			lblDiceBackPlayerGreen.setBounds(1100, 575, 150, 150);
 		}
-		return lblDiceBackPlayer3;
+		return lblDiceBackPlayerGreen;
 	}
 
-	private JLabel getLblDiceBackPlayer4() {
-		if (lblDiceBackPlayer4 == null) {
-			lblDiceBackPlayer4 = new JLabel("");
-			lblDiceBackPlayer4.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
-			lblDiceBackPlayer4.setBounds(55, 160, 150, 150);
+	public JLabel getLblDiceBackPlayerYellow() {
+		if (lblDiceBackPlayerYellow == null) {
+			lblDiceBackPlayerYellow = new JLabel("");
+			lblDiceBackPlayerYellow.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
+			lblDiceBackPlayerYellow.setBounds(55, 160, 150, 150);
 		}
-		return lblDiceBackPlayer4;
+		return lblDiceBackPlayerYellow;
 	}
 
 	private JLabel getLblPawnRed1() {
@@ -451,13 +451,13 @@ public class LudoGame extends JFrame {
 		return lblSettings;
 	}
 
-	private JLabel getLblDiceBackPlayer1() {
-		if (lblDiceBackPlayer1 == null) {
-			lblDiceBackPlayer1 = new JLabel("");
-			lblDiceBackPlayer1.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
-			lblDiceBackPlayer1.setBounds(1100, 160, 150, 150);
+	public JLabel getLblDiceBackPlayerRed() {
+		if (lblDiceBackPlayerRed == null) {
+			lblDiceBackPlayerRed = new JLabel("");
+			lblDiceBackPlayerRed.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
+			lblDiceBackPlayerRed.setBounds(1100, 160, 150, 150);
 		}
-		return lblDiceBackPlayer1;
+		return lblDiceBackPlayerRed;
 	}
 
 	private JLabel getLblDicePlayerRed() {

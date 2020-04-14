@@ -3,12 +3,12 @@ package server;
 public class Node {
 
 	public boolean active = false;
-	public int colour;
+	public int color;
 	public Node next;
 
-	public Node(int colour, Node next) {
+	public Node(int color, Node next) {
 		super();
-		this.colour = colour;
+		this.color = color;
 		this.next = next;
 	}
 
@@ -21,11 +21,11 @@ public class Node {
 	}
 
 	public int getColour() {
-		return colour;
+		return color;
 	}
 
 	public void setColour(int colour) {
-		this.colour = colour;
+		this.color = colour;
 	}
 
 	public Node getNext() {

@@ -82,8 +82,8 @@ public class ServerThread extends Thread {
 					play();
 					break;
 
-				case CommandS.GAME:
-					game();
+				case CommandS.GAMESTART:
+					gameStart();
 					break;
 
 				default:
@@ -124,17 +124,22 @@ public class ServerThread extends Thread {
 		}
 		int playerID = dataIn.readInt();
 
+				
 		// ovde treba neka cekajuca za read line
 		String name = textIn.readLine();
-		System.out.println(name);
-
+//		System.out.println(name);
+		int allIsReady = 0;
 		for (int m = 0; m < 10; m++) {
 			if (Server.games[m].getRoomID() == roomID) {
 				Server.games[m].getPlayers()[playerID - 1].setName(name);
 				Server.games[m].getPlayers()[playerID - 1].setReady(true);
-				send_to_players_in_game(CommandS.PLAY, playerID, all_is_ready(roomID, playerID), name);
+				allIsReady = all_is_ready(roomID, playerID);
+				send_to_players_in_game(CommandS.PLAY, playerID, allIsReady, name);
 
 			}
+		}
+		if(allIsReady == 1) {
+			gameStart();
 		}
 
 	}
@@ -161,7 +166,6 @@ public class ServerThread extends Thread {
 						}
 					}
 
-					// game();
 					return 1; // svi su spremni
 				} else {
 
@@ -172,6 +176,20 @@ public class ServerThread extends Thread {
 		return 0;
 	}
 
+	private void gameStart() throws IOException {
+		Node pom = first;
+		
+		while (pom.active != true) {
+			pom = pom.next;
+		}
+		
+		send_to_players_in_game(CommandS.GAMESTART, pom.color); 
+
+		
+	}
+
+	/*OVU METODU NECEMO KORISTITI !!!!
+	 
 	private void game() throws IOException, InterruptedException {
 		Node pom = first; // mozda ovo treba van ako se game poziva vise puta !!!!!!!!!!!!!!
 		while (Server.games[gameIndex].isEndOfGame() == false) {
@@ -185,7 +203,7 @@ public class ServerThread extends Thread {
 
 			// bacanje kocku u slucaju da je prva runda
 			if (Server.games[gameIndex].getRound() == 1) {
-				for (int i = 0; i < 3; i++) {
+				for (int i = 1; i <= 3; i++) {
 					send_to_players_in_game(CommandS.THROW_DICE, pom.colour, 10); // 10 je baci kockicu
 					while (dataIn.available() == 0) {
 						Thread.sleep(10);
@@ -195,6 +213,10 @@ public class ServerThread extends Thread {
 					send_to_players_in_game(CommandS.THROW_DICE, pom.colour, numberOnDice);
 					if (numberOnDice == 6) {
 						break;
+					}
+					if (i == 3 && numberOnDice != 6) {
+						pom = pom.next;
+						continue;
 					}
 				}
 			} else {
@@ -215,6 +237,7 @@ public class ServerThread extends Thread {
 		}
 
 	}
+	*/
 
 	private void send_colour() throws IOException, InterruptedException {
 
@@ -282,7 +305,7 @@ public class ServerThread extends Thread {
 
 	private void activatePlayer(int color, Node first) {
 		Node pom = first;
-		while (pom.colour != color)
+		while (pom.color != color)
 			pom = pom.next;
 		pom.setActive(true);
 	}

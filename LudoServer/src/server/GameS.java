@@ -6,7 +6,7 @@ public class GameS {
 	private int roomID = -1; // ovo ne sme da bude static kao na klijentu; setovano je na -1 jer to nikada
 								// nije room
 	private int numberOfPlayers = 0;
-	private int playersOnTurn; // playerID
+	private int playerOnTurn; // color
 	private float timeInGame;
 	private int round = 1;
 	private Node first;
@@ -401,11 +401,11 @@ public class GameS {
 	}
 
 	public int getPlayersOnTurn() {
-		return playersOnTurn;
+		return playerOnTurn;
 	}
 
 	public void setPlayersOnTurn(int playersOnTurn) {
-		this.playersOnTurn = playersOnTurn;
+		this.playerOnTurn = playersOnTurn;
 	}
 
 	public float getTimeInGame() {
