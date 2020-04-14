@@ -1,7 +1,7 @@
 package server;
 
 public class FieldS {
-	
+
 	private int index;
 	private boolean isSafe;
 	private boolean isBase;
@@ -9,7 +9,7 @@ public class FieldS {
 	private int colour = -1; // -1 ako polje nema boju
 	private int coordinate_x;
 	private int coordinate_y;
-	
+
 	PawnS[] pawnsOnField = new PawnS[16];
 
 	public FieldS(int index, boolean isSafe, boolean isBase, boolean isGoal, int colour, int coordinate_x,
@@ -87,8 +87,5 @@ public class FieldS {
 	public void setPawnsOnField(PawnS[] pawnsOnField) {
 		this.pawnsOnField = pawnsOnField;
 	}
-	
-	
-	
 
 }

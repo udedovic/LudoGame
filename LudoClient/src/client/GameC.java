@@ -1,6 +1,5 @@
 package client;
 
-
 public class GameC {
 
 	private static boolean endOfGame = false; // ovi podaci na klijentu mogu da budu static jer se odnose na celu klasu
@@ -21,70 +20,70 @@ public class GameC {
 
 	FieldC[] fields = new FieldC[104];
 	PlayerC[] players = new PlayerC[4];
-	
+
 	public void make_red_pawns(int playerID) {
-		
+
 		PawnC p1 = new PawnC(CommandC.RED, 1, 92, 805, 85);
 		PawnC p2 = new PawnC(CommandC.RED, 2, 93, 903, 85);
 		PawnC p3 = new PawnC(CommandC.RED, 3, 94, 805, 173);
 		PawnC p4 = new PawnC(CommandC.RED, 4, 95, 903, 173);
-		
+
 		players[playerID - 1].getPawns()[0] = p1;
 		players[playerID - 1].getPawns()[1] = p2;
 		players[playerID - 1].getPawns()[2] = p3;
 		players[playerID - 1].getPawns()[3] = p4;
-		
+
 	}
-	
+
 	public void make_blue_pawns(int playerID) {
-		
+
 		PawnC p1 = new PawnC(CommandC.BLUE, 1, 96, 342, 550);
 		PawnC p2 = new PawnC(CommandC.BLUE, 2, 97, 440, 550);
 		PawnC p3 = new PawnC(CommandC.BLUE, 3, 98, 342, 635);
 		PawnC p4 = new PawnC(CommandC.BLUE, 4, 99, 440, 635);
-		
+
 		players[playerID - 1].getPawns()[0] = p1;
 		players[playerID - 1].getPawns()[1] = p2;
 		players[playerID - 1].getPawns()[2] = p3;
 		players[playerID - 1].getPawns()[3] = p4;
-		
+
 	}
-	
+
 	public void make_green_pawns(int playerID) {
-		
+
 		PawnC p1 = new PawnC(CommandC.GREEN, 1, 100, 805, 550);
 		PawnC p2 = new PawnC(CommandC.GREEN, 2, 101, 903, 550);
 		PawnC p3 = new PawnC(CommandC.GREEN, 3, 102, 805, 635);
 		PawnC p4 = new PawnC(CommandC.GREEN, 4, 103, 903, 635);
-		
+
 		players[playerID - 1].getPawns()[0] = p1;
 		players[playerID - 1].getPawns()[1] = p2;
 		players[playerID - 1].getPawns()[2] = p3;
 		players[playerID - 1].getPawns()[3] = p4;
-		
+
 	}
-	
+
 	public void make_yelow_pawns(int playerID) {
-		
+
 		PawnC p1 = new PawnC(CommandC.YELLOW, 1, 88, 342, 85);
 		PawnC p2 = new PawnC(CommandC.YELLOW, 2, 89, 440, 85);
 		PawnC p3 = new PawnC(CommandC.YELLOW, 3, 90, 342, 173);
 		PawnC p4 = new PawnC(CommandC.YELLOW, 4, 91, 440, 173);
-		
+
 		players[playerID - 1].getPawns()[0] = p1;
 		players[playerID - 1].getPawns()[1] = p2;
 		players[playerID - 1].getPawns()[2] = p3;
 		players[playerID - 1].getPawns()[3] = p4;
-		
+
 	}
 
 	public void make_game() {
-		
+
 		PlayerC p1 = new PlayerC();
 		PlayerC p2 = new PlayerC();
 		PlayerC p3 = new PlayerC();
 		PlayerC p4 = new PlayerC();
-		
+
 		// mecuju se index + 1 i player ID
 		players[0] = p1;
 		players[1] = p2;

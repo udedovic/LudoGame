@@ -133,17 +133,17 @@ public class ServerThread extends Thread {
 				Server.games[m].getPlayers()[playerID - 1].setName(name);
 				Server.games[m].getPlayers()[playerID - 1].setReady(true);
 				send_to_players_in_game(CommandS.PLAY, playerID, all_is_ready(roomID, playerID), name);
-				
+
 			}
 		}
-		
+
 	}
 
 	private int all_is_ready(int roomID, int playerID) throws IOException, InterruptedException {
 
 		for (int i = 0; i < 10; i++) {
 			if (Server.games[i].getRoomID() == roomID) {
-				
+
 				int pom = 0;
 				for (int j = 0; j < 4; j++) {
 					if (Server.games[i].getPlayers()[j] != null && Server.games[i].getPlayers()[j].isReady() == true) {
@@ -152,38 +152,19 @@ public class ServerThread extends Thread {
 				}
 
 				if (pom == Server.games[i].getNumberOfPlayers()) {
-					// ako sam usao ovde onda se igra pokrece
-					// saljem klijentu sve potrebne informacije u vezi setovanja table
 
-//					for (int k = 0; k <= 39; k++) {
-//
-//						if (clients[k] != null && clients[k].getRoomID() == roomID) {
-//							int data = 2;
-//							clients[k].dataOut.writeInt(data); // 2 svi su spremni krece igra
-//							// odavde pocinje igra
-//							System.out.println("0");
-//
-//						}
-//					}
 					// za datu sobu na serveru uzimamo prvi cvor i smestamo u pom
-//					for (int j = 0; j < 10; j++) {
-//						if (Server.games[j].getRoomID() == roomID) {
-//							first = Server.games[j].getFirst();
-//							gameIndex = j;
-//						}
-//					}
-					//game();
+					for (int j = 0; j < 10; j++) {
+						if (Server.games[j].getRoomID() == roomID) {
+							first = Server.games[j].getFirst();
+							gameIndex = j;
+						}
+					}
+
+					// game();
 					return 1; // svi su spremni
 				} else {
-//					System.out.println("1");
-//					for (int k = 0; k <= 39; k++) {
-//
-//						if (clients[k] != null && clients[k].getRoomID() == roomID) {
-//							int data = 3;
-//							clients[k].dataOut.writeInt(data); // 3 NISU SPREMNI
-//							System.out.println("Nisu spremni poslo");
-//						}
-//					}
+
 					return 0; // nisu spremni
 				}
 			}
@@ -427,7 +408,7 @@ public class ServerThread extends Thread {
 			}
 		}
 	}
-	
+
 	private void send_to_players_in_game(int command, int playerID, int data, String text) throws IOException {
 
 		for (int r = 0; r <= 39; r++) {
@@ -437,17 +418,15 @@ public class ServerThread extends Thread {
 				clients[r].dataOut.writeInt(command); // salje se primljeni kod klijentskoj strani da bi znao koji
 														// podatci stizu
 				clients[r].dataOut.writeInt(playerID);
-				
+
 				clients[r].dataOut.writeInt(data);
-				
+
 				clients[r].textOut.println(text);
 				textOut.flush();
 
 			}
 		}
 	}
-	
-	
 
 	/*
 	 * metoda oslobadja mesto u nizu tako sto brise nit

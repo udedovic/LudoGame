@@ -136,6 +136,7 @@ public class LudoGame extends JFrame {
 		contentPane.add(getLblChatBack());
 		contentPane.add(getLblBackgroundGame());
 	}
+
 	private JLabel getLblBackgroundGame() {
 		if (lblBackgroundGame == null) {
 			lblBackgroundGame = new JLabel("");
@@ -144,6 +145,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblBackgroundGame;
 	}
+
 	private JLabel getLblBoard() {
 		if (lblBoard == null) {
 			lblBoard = new JLabel("");
@@ -152,6 +154,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblBoard;
 	}
+
 	public JLabel getLblPlayer1() {
 		if (lblPlayer1 == null) {
 			lblPlayer1 = new JLabel("");
@@ -160,6 +163,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPlayer1;
 	}
+
 	public JLabel getLblPlayer2() {
 		if (lblPlayer2 == null) {
 			lblPlayer2 = new JLabel("");
@@ -168,6 +172,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPlayer2;
 	}
+
 	public JLabel getLblPlayer3() {
 		if (lblPlayer3 == null) {
 			lblPlayer3 = new JLabel("");
@@ -176,6 +181,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPlayer3;
 	}
+
 	public JLabel getLblPlayer4() {
 		if (lblPlayer4 == null) {
 			lblPlayer4 = new JLabel("");
@@ -184,6 +190,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPlayer4;
 	}
+
 	private JLabel getLblDiceBackPlayer2() {
 		if (lblDiceBackPlayer2 == null) {
 			lblDiceBackPlayer2 = new JLabel("");
@@ -192,6 +199,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblDiceBackPlayer2;
 	}
+
 	private JLabel getLblDiceBackPlayer3() {
 		if (lblDiceBackPlayer3 == null) {
 			lblDiceBackPlayer3 = new JLabel("");
@@ -200,6 +208,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblDiceBackPlayer3;
 	}
+
 	private JLabel getLblDiceBackPlayer4() {
 		if (lblDiceBackPlayer4 == null) {
 			lblDiceBackPlayer4 = new JLabel("");
@@ -208,6 +217,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblDiceBackPlayer4;
 	}
+
 	private JLabel getLblPawnRed1() {
 		if (lblPawnRed1 == null) {
 			lblPawnRed1 = new JLabel("");
@@ -216,6 +226,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnRed1;
 	}
+
 	private JLabel getLblPawnRed2() {
 		if (lblPawnRed2 == null) {
 			lblPawnRed2 = new JLabel("");
@@ -224,6 +235,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnRed2;
 	}
+
 	private JLabel getLblPawnRed3() {
 		if (lblPawnRed3 == null) {
 			lblPawnRed3 = new JLabel("");
@@ -232,6 +244,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnRed3;
 	}
+
 	private JLabel getLblPawnRed4() {
 		if (lblPawnRed4 == null) {
 			lblPawnRed4 = new JLabel("");
@@ -240,6 +253,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnRed4;
 	}
+
 	private JLabel getLblPawnYellow1() {
 		if (lblPawnYellow1 == null) {
 			lblPawnYellow1 = new JLabel("");
@@ -248,6 +262,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnYellow1;
 	}
+
 	private JLabel getLblPawnYellow2() {
 		if (lblPawnYellow2 == null) {
 			lblPawnYellow2 = new JLabel("");
@@ -256,6 +271,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnYellow2;
 	}
+
 	private JLabel getLblPawnYellow3() {
 		if (lblPawnYellow3 == null) {
 			lblPawnYellow3 = new JLabel("");
@@ -264,6 +280,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnYellow3;
 	}
+
 	private JLabel getLblPawnYellow4() {
 		if (lblPawnYellow4 == null) {
 			lblPawnYellow4 = new JLabel("");
@@ -272,6 +289,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnYellow4;
 	}
+
 	private JLabel getLblPawnBlue1() {
 		if (lblPawnBlue1 == null) {
 			lblPawnBlue1 = new JLabel("");
@@ -280,6 +298,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnBlue1;
 	}
+
 	private JLabel getLblPawnBlue2() {
 		if (lblPawnBlue2 == null) {
 			lblPawnBlue2 = new JLabel("");
@@ -288,6 +307,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnBlue2;
 	}
+
 	private JLabel getLblPawnBlue3() {
 		if (lblPawnBlue3 == null) {
 			lblPawnBlue3 = new JLabel("");
@@ -296,6 +316,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnBlue3;
 	}
+
 	private JLabel getLblPawnBlue4() {
 		if (lblPawnBlue4 == null) {
 			lblPawnBlue4 = new JLabel("");
@@ -304,6 +325,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnBlue4;
 	}
+
 	private JLabel getLblPawnGreen1() {
 		if (lblPawnGreen1 == null) {
 			lblPawnGreen1 = new JLabel("");
@@ -312,6 +334,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnGreen1;
 	}
+
 	private JLabel getLblPawnGreen2() {
 		if (lblPawnGreen2 == null) {
 			lblPawnGreen2 = new JLabel("");
@@ -320,6 +343,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnGreen2;
 	}
+
 	private JLabel getLblPawnGreen3() {
 		if (lblPawnGreen3 == null) {
 			lblPawnGreen3 = new JLabel("");
@@ -328,6 +352,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnGreen3;
 	}
+
 	private JLabel getLblPawnGreen4() {
 		if (lblPawnGreen4 == null) {
 			lblPawnGreen4 = new JLabel("");
@@ -336,6 +361,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnGreen4;
 	}
+
 	public JLabel getLblNamePlayerRed() {
 		if (lblNamePlayerRed == null) {
 			lblNamePlayerRed = new JLabel("playerRed");
@@ -346,6 +372,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblNamePlayerRed;
 	}
+
 	public JLabel getLblNamePlayerBlue() {
 		if (lblNamePlayerBlue == null) {
 			lblNamePlayerBlue = new JLabel("playerBlue");
@@ -356,6 +383,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblNamePlayerBlue;
 	}
+
 	public JLabel getLblNamePlayerGreen() {
 		if (lblNamePlayerGreen == null) {
 			lblNamePlayerGreen = new JLabel("playerGreen");
@@ -366,6 +394,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblNamePlayerGreen;
 	}
+
 	public JLabel getLblNamePlayerYellow() {
 		if (lblNamePlayerYellow == null) {
 			lblNamePlayerYellow = new JLabel("playerYellow");
@@ -376,6 +405,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblNamePlayerYellow;
 	}
+
 	private JLabel getLblDicePlayerBlue() {
 		if (lblDicePlayerBlue == null) {
 			lblDicePlayerBlue = new JLabel("");
@@ -384,6 +414,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblDicePlayerBlue;
 	}
+
 	private JLabel getLblDicePlayerGreen() {
 		if (lblDicePlayerGreen == null) {
 			lblDicePlayerGreen = new JLabel("");
@@ -392,6 +423,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblDicePlayerGreen;
 	}
+
 	private JLabel getLblDicePlayerYellow() {
 		if (lblDicePlayerYellow == null) {
 			lblDicePlayerYellow = new JLabel("");
@@ -400,6 +432,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblDicePlayerYellow;
 	}
+
 	private JLabel getLblExit() {
 		if (lblExit == null) {
 			lblExit = new JLabel("");
@@ -408,6 +441,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblExit;
 	}
+
 	private JLabel getLblSettings() {
 		if (lblSettings == null) {
 			lblSettings = new JLabel("");
@@ -416,6 +450,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblSettings;
 	}
+
 	private JLabel getLblDiceBackPlayer1() {
 		if (lblDiceBackPlayer1 == null) {
 			lblDiceBackPlayer1 = new JLabel("");
@@ -424,6 +459,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblDiceBackPlayer1;
 	}
+
 	private JLabel getLblDicePlayerRed() {
 		if (lblDicePlayerRed == null) {
 			lblDicePlayerRed = new JLabel("");
@@ -432,6 +468,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblDicePlayerRed;
 	}
+
 	private JLabel getLblChatBack() {
 		if (lblChatBack == null) {
 			lblChatBack = new JLabel("");
@@ -440,6 +477,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblChatBack;
 	}
+
 	private JLabel getLblChatName() {
 		if (lblChatName == null) {
 			lblChatName = new JLabel("");
@@ -448,6 +486,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblChatName;
 	}
+
 	private JLabel getLblDeleteChat() {
 		if (lblDeleteChat == null) {
 			lblDeleteChat = new JLabel("");
@@ -456,6 +495,7 @@ public class LudoGame extends JFrame {
 		}
 		return lblDeleteChat;
 	}
+
 	private JTextField getTextFieldChat() {
 		if (textFieldChat == null) {
 			textFieldChat = new JTextField();
@@ -467,6 +507,7 @@ public class LudoGame extends JFrame {
 		}
 		return textFieldChat;
 	}
+
 	private JTextArea getTextAreaChat() {
 		if (textAreaChat == null) {
 			textAreaChat = new JTextArea();
@@ -476,6 +517,7 @@ public class LudoGame extends JFrame {
 		}
 		return textAreaChat;
 	}
+
 	private JScrollPane getScrollPaneChat() {
 		if (scrollPaneChat == null) {
 			scrollPaneChat = new JScrollPane();

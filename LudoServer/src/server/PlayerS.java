@@ -1,22 +1,19 @@
 package server;
 
-
 public class PlayerS {
-	
+
 	private String name;
 	private int color = 0;
 	private boolean isOnTurn = false;
 	private int playerId;
 	private boolean isReady = false; // koristi se samo za prelaz sa main menua na ludo game
-	
+
 	private PawnS[] pawns = new PawnS[4];
 
 	public PlayerS(int playerId) {
 		super();
 		this.playerId = playerId;
 	}
-	
-	
 
 	public boolean isReady() {
 		return isReady;
@@ -65,9 +62,5 @@ public class PlayerS {
 	public void setPawns(PawnS[] pawns) {
 		this.pawns = pawns;
 	}
-	
-	
-	
-	
 
 }

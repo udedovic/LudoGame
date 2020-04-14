@@ -102,30 +102,29 @@ public class RunExecutes {
 			Thread.sleep(10);
 		}
 		int playerID = dataIn.readInt();
-		
+
 		System.out.println("Uso u play - klijent");
 		System.out.println(playerID);
-		
+
 		// ovde je greska, mozda i na server strani
-		String name = textIn.readLine();
-		
-		System.out.println("Procito ime sa servera");
-		System.out.println(name);
-		
+
 		// ova linija ne prima info od servera!!!!!!!!!!!!!!
 		// zauvek ostaje u ovoj liniji koda
 		while (dataIn.available() == 0) {
 			Thread.sleep(10);
 		}
 		int codeAll = dataIn.readInt();
-		
+
 		System.out.println("Procitao kod");
 		System.out.println(codeAll);
+
+		String name = textIn.readLine();
+		System.out.println("Procito ime sa servera");
+		System.out.println(name);
 
 		// ako je 1 onda je jedan novi spreman, ako je 2 onda su svi spremni
 
 		Client.game.getPlayers()[playerID - 1].setName(name);
-		
 
 		switch (Client.game.getPlayers()[playerID - 1].getColor()) {
 
