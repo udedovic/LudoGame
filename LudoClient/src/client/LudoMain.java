@@ -213,6 +213,7 @@ public class LudoMain extends JFrame {
 			lblPlay.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
+					
 					if(textName.getText() == null || textName.getText().equals("")) {
 						JOptionPane.showMessageDialog(LudoMain.this, "Please enter name", "error", JOptionPane.ERROR_MESSAGE);
 						return;
@@ -223,7 +224,7 @@ public class LudoMain extends JFrame {
 						return;
 					}
 					
-					Client.game.getPlayerYou().setName(textName.getText());
+					Client.game.getPlayers()[GameC.getYouPlayerID() - 1].setName(textName.getText());
 
 					ClientExecute.setSendingCode(CommandC.PLAY);
 

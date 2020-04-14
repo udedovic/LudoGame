@@ -37,18 +37,18 @@ public class LudoStart extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	// public static void main(String[] args) {
-	// EventQueue.invokeLater(new Runnable() {
-	// public void run() {
-	// try {
-	// LudoStart frame = new LudoStart();
-	// frame.setVisible(true);
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	// }
-	// });
-	// }
+//	 public static void main(String[] args) {
+//	 EventQueue.invokeLater(new Runnable() {
+//	 public void run() {
+//	 try {
+//	 LudoStart frame = new LudoStart();
+//	 frame.setVisible(true);
+//	 } catch (Exception e) {
+//	 e.printStackTrace();
+//	 }
+//	 }
+//	 });
+//	 }
 
 	/**
 	 * Create the frame.
@@ -201,8 +201,8 @@ public class LudoStart extends JFrame {
 					}
 				}
 			});
-			lblGO.setIcon(new ImageIcon(LudoStart.class.getResource("/Resource/FirstPage/GOButtonF (2).png")));
-			lblGO.setBounds(198, 381, 110, 115);
+			lblGO.setIcon(new ImageIcon(LudoStart.class.getResource("/Resource/goBtn.png")));
+			lblGO.setBounds(197, 381, 110, 110);
 		}
 		return lblGO;
 	}

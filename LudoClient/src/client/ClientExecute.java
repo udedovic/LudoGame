@@ -42,8 +42,6 @@ public class ClientExecute {
 			
 			if(sendingCode != CommandC.NOTHING_TO_DO) {
 				
-				System.out.println("poslao nesto - klijent");
-				
 				switch(sendingCode) {
 				
 				case CommandC.THROW_DICE:
@@ -66,7 +64,7 @@ public class ClientExecute {
 					if(RunExecutes.isColorIsSelected() == false) {
 						dataOut.writeInt(CommandC.SEND_COLOR);
 						dataOut.writeInt(GameC.getRoomID());
-						dataOut.writeInt(Client.game.getPlayerYou().getPlayerId());
+						dataOut.writeInt(GameC.getYouPlayerID());
 						dataOut.writeInt(Client.ludoMain.getSelectedColor());
 					}
 					sendingCode = CommandC.NOTHING_TO_DO;
@@ -75,9 +73,9 @@ public class ClientExecute {
 				case CommandC.PLAY:
 					dataOut.writeInt(CommandC.PLAY);
 					dataOut.writeInt(GameC.getRoomID());
-					dataOut.writeInt(Client.game.getPlayerYou().getPlayerId());
-					textOut.println(Client.game.getPlayerYou().getName());
-					System.out.println("proso");
+					dataOut.writeInt(GameC.getYouPlayerID());
+					textOut.println(Client.game.getPlayers()[GameC.getYouPlayerID() - 1].getName());
+					textOut.flush();
 					sendingCode = CommandC.NOTHING_TO_DO;
 					break;
 

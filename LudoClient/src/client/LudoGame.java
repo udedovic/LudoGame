@@ -18,13 +18,14 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 public class LudoGame extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblBackgroundGame;
 	private JLabel lblBoard;
-	private JLabel lblPlayerYou;
+	private JLabel lblPlayer1;
 	private JLabel lblPlayer2;
 	private JLabel lblPlayer3;
 	private JLabel lblPlayer4;
@@ -47,18 +48,23 @@ public class LudoGame extends JFrame {
 	private JLabel lblPawnGreen2;
 	private JLabel lblPawnGreen3;
 	private JLabel lblPawnGreen4;
-	private JLabel lblNamePlayerYou;
-	private JLabel lblNamePlayer2;
-	private JLabel lblNamePlayer3;
-	private JLabel lblNamePlayer4;
-	private JLabel lblDicePlayer2;
-	private JLabel lblDicePlayer3;
-	private JLabel lblDicePlayer4;
+	private JLabel lblNamePlayerRed;
+	private JLabel lblNamePlayerBlue;
+	private JLabel lblNamePlayerGreen;
+	private JLabel lblNamePlayerYellow;
+	private JLabel lblDicePlayerBlue;
+	private JLabel lblDicePlayerGreen;
+	private JLabel lblDicePlayerYellow;
 	private JLabel lblExit;
 	private JLabel lblSettings;
-	private JLabel lblDiceBackRed;
-	private JLabel lblDiceRed;
+	private JLabel lblDiceBackPlayer1;
+	private JLabel lblDicePlayerRed;
 	private JLabel lblChatBack;
+	private JLabel lblChatName;
+	private JLabel lblDeleteChat;
+	private JTextField textFieldChat;
+	private JTextArea textAreaChat;
+	private JScrollPane scrollPaneChat;
 
 	/**
 	 * Launch the application.
@@ -83,12 +89,11 @@ public class LudoGame extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LudoGame.class.getResource("/Resource/ludo1.png")));
 		setTitle("Ludo");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1640, 880);
+		setBounds(100, 100, 1645, 880);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(getLblChatBack());
 		contentPane.add(getLblPawnRed1());
 		contentPane.add(getLblPawnRed2());
 		contentPane.add(getLblPawnRed3());
@@ -105,25 +110,30 @@ public class LudoGame extends JFrame {
 		contentPane.add(getLblPawnGreen2());
 		contentPane.add(getLblPawnGreen3());
 		contentPane.add(getLblPawnGreen4());
-		contentPane.add(getLblNamePlayerYou());
-		contentPane.add(getLblNamePlayer2());
-		contentPane.add(getLblNamePlayer3());
-		contentPane.add(getLblNamePlayer4());
+		contentPane.add(getLblNamePlayerRed());
+		contentPane.add(getLblNamePlayerBlue());
+		contentPane.add(getLblNamePlayerGreen());
+		contentPane.add(getLblNamePlayerYellow());
 		contentPane.add(getLblBoard());
-		contentPane.add(getLblPlayerYou());
+		contentPane.add(getLblPlayer1());
 		contentPane.add(getLblPlayer2());
 		contentPane.add(getLblPlayer3());
 		contentPane.add(getLblPlayer4());
-		contentPane.add(getLblDicePlayer2());
-		contentPane.add(getLblDicePlayer3());
-		contentPane.add(getLblDicePlayer4());
+		contentPane.add(getLblDicePlayerRed());
+		contentPane.add(getLblDicePlayerBlue());
+		contentPane.add(getLblDicePlayerGreen());
+		contentPane.add(getLblDicePlayerYellow());
 		contentPane.add(getLblDiceBackPlayer2());
 		contentPane.add(getLblDiceBackPlayer3());
 		contentPane.add(getLblDiceBackPlayer4());
-		contentPane.add(getLblDiceRed());
-		contentPane.add(getLblDiceBackRed());
+		contentPane.add(getLblDiceBackPlayer1());
 		contentPane.add(getLblExit());
 		contentPane.add(getLblSettings());
+		contentPane.add(getLblDeleteChat());
+		contentPane.add(getTextFieldChat());
+		contentPane.add(getScrollPaneChat());
+		contentPane.add(getLblChatName());
+		contentPane.add(getLblChatBack());
 		contentPane.add(getLblBackgroundGame());
 	}
 	private JLabel getLblBackgroundGame() {
@@ -142,13 +152,13 @@ public class LudoGame extends JFrame {
 		}
 		return lblBoard;
 	}
-	public JLabel getLblPlayerYou() {
-		if (lblPlayerYou == null) {
-			lblPlayerYou = new JLabel("");
-			lblPlayerYou.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Rededge (6).png")));
-			lblPlayerYou.setBounds(1064, 87, 220, 60);
+	public JLabel getLblPlayer1() {
+		if (lblPlayer1 == null) {
+			lblPlayer1 = new JLabel("");
+			lblPlayer1.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/Rededge (6).png")));
+			lblPlayer1.setBounds(1064, 87, 220, 60);
 		}
-		return lblPlayerYou;
+		return lblPlayer1;
 	}
 	public JLabel getLblPlayer2() {
 		if (lblPlayer2 == null) {
@@ -185,7 +195,7 @@ public class LudoGame extends JFrame {
 	private JLabel getLblDiceBackPlayer3() {
 		if (lblDiceBackPlayer3 == null) {
 			lblDiceBackPlayer3 = new JLabel("");
-			lblDiceBackPlayer3.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDice (5).png")));
+			lblDiceBackPlayer3.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
 			lblDiceBackPlayer3.setBounds(1100, 575, 150, 150);
 		}
 		return lblDiceBackPlayer3;
@@ -193,7 +203,7 @@ public class LudoGame extends JFrame {
 	private JLabel getLblDiceBackPlayer4() {
 		if (lblDiceBackPlayer4 == null) {
 			lblDiceBackPlayer4 = new JLabel("");
-			lblDiceBackPlayer4.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDice (5).png")));
+			lblDiceBackPlayer4.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
 			lblDiceBackPlayer4.setBounds(55, 160, 150, 150);
 		}
 		return lblDiceBackPlayer4;
@@ -326,75 +336,75 @@ public class LudoGame extends JFrame {
 		}
 		return lblPawnGreen4;
 	}
-	public JLabel getLblNamePlayerYou() {
-		if (lblNamePlayerYou == null) {
-			lblNamePlayerYou = new JLabel("player1");
-			lblNamePlayerYou.setForeground(new Color(255, 255, 0));
-			lblNamePlayerYou.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNamePlayerYou.setFont(new Font("Showcard Gothic", Font.PLAIN, 22));
-			lblNamePlayerYou.setBounds(1090, 104, 161, 29);
+	public JLabel getLblNamePlayerRed() {
+		if (lblNamePlayerRed == null) {
+			lblNamePlayerRed = new JLabel("playerRed");
+			lblNamePlayerRed.setForeground(new Color(255, 255, 0));
+			lblNamePlayerRed.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNamePlayerRed.setFont(new Font("Showcard Gothic", Font.PLAIN, 22));
+			lblNamePlayerRed.setBounds(1090, 104, 161, 29);
 		}
-		return lblNamePlayerYou;
+		return lblNamePlayerRed;
 	}
-	public JLabel getLblNamePlayer2() {
-		if (lblNamePlayer2 == null) {
-			lblNamePlayer2 = new JLabel("player2");
-			lblNamePlayer2.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNamePlayer2.setForeground(Color.YELLOW);
-			lblNamePlayer2.setFont(new Font("Showcard Gothic", Font.PLAIN, 22));
-			lblNamePlayer2.setBounds(55, 516, 161, 29);
+	public JLabel getLblNamePlayerBlue() {
+		if (lblNamePlayerBlue == null) {
+			lblNamePlayerBlue = new JLabel("playerBlue");
+			lblNamePlayerBlue.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNamePlayerBlue.setForeground(Color.YELLOW);
+			lblNamePlayerBlue.setFont(new Font("Showcard Gothic", Font.PLAIN, 22));
+			lblNamePlayerBlue.setBounds(55, 516, 161, 29);
 		}
-		return lblNamePlayer2;
+		return lblNamePlayerBlue;
 	}
-	public JLabel getLblNamePlayer3() {
-		if (lblNamePlayer3 == null) {
-			lblNamePlayer3 = new JLabel("player3");
-			lblNamePlayer3.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNamePlayer3.setForeground(Color.YELLOW);
-			lblNamePlayer3.setFont(new Font("Showcard Gothic", Font.PLAIN, 22));
-			lblNamePlayer3.setBounds(1097, 518, 161, 29);
+	public JLabel getLblNamePlayerGreen() {
+		if (lblNamePlayerGreen == null) {
+			lblNamePlayerGreen = new JLabel("playerGreen");
+			lblNamePlayerGreen.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNamePlayerGreen.setForeground(Color.YELLOW);
+			lblNamePlayerGreen.setFont(new Font("Showcard Gothic", Font.PLAIN, 22));
+			lblNamePlayerGreen.setBounds(1097, 518, 161, 29);
 		}
-		return lblNamePlayer3;
+		return lblNamePlayerGreen;
 	}
-	public JLabel getLblNamePlayer4() {
-		if (lblNamePlayer4 == null) {
-			lblNamePlayer4 = new JLabel("player4");
-			lblNamePlayer4.setHorizontalAlignment(SwingConstants.CENTER);
-			lblNamePlayer4.setForeground(Color.YELLOW);
-			lblNamePlayer4.setFont(new Font("Showcard Gothic", Font.PLAIN, 22));
-			lblNamePlayer4.setBounds(55, 106, 161, 29);
+	public JLabel getLblNamePlayerYellow() {
+		if (lblNamePlayerYellow == null) {
+			lblNamePlayerYellow = new JLabel("playerYellow");
+			lblNamePlayerYellow.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNamePlayerYellow.setForeground(Color.YELLOW);
+			lblNamePlayerYellow.setFont(new Font("Showcard Gothic", Font.PLAIN, 22));
+			lblNamePlayerYellow.setBounds(55, 106, 161, 29);
 		}
-		return lblNamePlayer4;
+		return lblNamePlayerYellow;
 	}
-	private JLabel getLblDicePlayer2() {
-		if (lblDicePlayer2 == null) {
-			lblDicePlayer2 = new JLabel("");
-			lblDicePlayer2.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/diceAllYouFinal.png")));
-			lblDicePlayer2.setBounds(85, 605, 90, 90);
+	private JLabel getLblDicePlayerBlue() {
+		if (lblDicePlayerBlue == null) {
+			lblDicePlayerBlue = new JLabel("");
+			lblDicePlayerBlue.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/diceAllYouFinal.png")));
+			lblDicePlayerBlue.setBounds(85, 605, 90, 90);
 		}
-		return lblDicePlayer2;
+		return lblDicePlayerBlue;
 	}
-	private JLabel getLblDicePlayer3() {
-		if (lblDicePlayer3 == null) {
-			lblDicePlayer3 = new JLabel("");
-			lblDicePlayer3.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/diceAllYouFinal.png")));
-			lblDicePlayer3.setBounds(1131, 605, 90, 90);
+	private JLabel getLblDicePlayerGreen() {
+		if (lblDicePlayerGreen == null) {
+			lblDicePlayerGreen = new JLabel("");
+			lblDicePlayerGreen.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/diceAllYouFinal.png")));
+			lblDicePlayerGreen.setBounds(1131, 605, 90, 90);
 		}
-		return lblDicePlayer3;
+		return lblDicePlayerGreen;
 	}
-	private JLabel getLblDicePlayer4() {
-		if (lblDicePlayer4 == null) {
-			lblDicePlayer4 = new JLabel("");
-			lblDicePlayer4.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/diceAllYouFinal.png")));
-			lblDicePlayer4.setBounds(85, 190, 90, 90);
+	private JLabel getLblDicePlayerYellow() {
+		if (lblDicePlayerYellow == null) {
+			lblDicePlayerYellow = new JLabel("");
+			lblDicePlayerYellow.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/diceAllYouFinal.png")));
+			lblDicePlayerYellow.setBounds(85, 190, 90, 90);
 		}
-		return lblDicePlayer4;
+		return lblDicePlayerYellow;
 	}
 	private JLabel getLblExit() {
 		if (lblExit == null) {
 			lblExit = new JLabel("");
 			lblExit.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/exit (3).png")));
-			lblExit.setBounds(1510, 27, 50, 50);
+			lblExit.setBounds(1551, 40, 50, 50);
 		}
 		return lblExit;
 	}
@@ -402,32 +412,76 @@ public class LudoGame extends JFrame {
 		if (lblSettings == null) {
 			lblSettings = new JLabel("");
 			lblSettings.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/settings (1).png")));
-			lblSettings.setBounds(1441, 27, 50, 50);
+			lblSettings.setBounds(1482, 40, 50, 50);
 		}
 		return lblSettings;
 	}
-	private JLabel getLblDiceBackRed() {
-		if (lblDiceBackRed == null) {
-			lblDiceBackRed = new JLabel("");
-			lblDiceBackRed.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDice (5).png")));
-			lblDiceBackRed.setBounds(1100, 160, 150, 150);
+	private JLabel getLblDiceBackPlayer1() {
+		if (lblDiceBackPlayer1 == null) {
+			lblDiceBackPlayer1 = new JLabel("");
+			lblDiceBackPlayer1.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/edgeDiceDark.png")));
+			lblDiceBackPlayer1.setBounds(1100, 160, 150, 150);
 		}
-		return lblDiceBackRed;
+		return lblDiceBackPlayer1;
 	}
-	private JLabel getLblDiceRed() {
-		if (lblDiceRed == null) {
-			lblDiceRed = new JLabel("");
-			lblDiceRed.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/diceAllYouFinal.png")));
-			lblDiceRed.setBounds(1131, 190, 90, 90);
+	private JLabel getLblDicePlayerRed() {
+		if (lblDicePlayerRed == null) {
+			lblDicePlayerRed = new JLabel("");
+			lblDicePlayerRed.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/diceAllYouFinal.png")));
+			lblDicePlayerRed.setBounds(1131, 190, 90, 90);
 		}
-		return lblDiceRed;
+		return lblDicePlayerRed;
 	}
 	private JLabel getLblChatBack() {
 		if (lblChatBack == null) {
 			lblChatBack = new JLabel("");
 			lblChatBack.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/chatFinal.png")));
-			lblChatBack.setBounds(1229, 239, 105, -123);
+			lblChatBack.setBounds(1309, 204, 301, 513);
 		}
 		return lblChatBack;
+	}
+	private JLabel getLblChatName() {
+		if (lblChatName == null) {
+			lblChatName = new JLabel("");
+			lblChatName.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/chatT.png")));
+			lblChatName.setBounds(1414, 160, 91, 49);
+		}
+		return lblChatName;
+	}
+	private JLabel getLblDeleteChat() {
+		if (lblDeleteChat == null) {
+			lblDeleteChat = new JLabel("");
+			lblDeleteChat.setIcon(new ImageIcon(LudoGame.class.getResource("/Resource/delete (2).png")));
+			lblDeleteChat.setBounds(1568, 679, 25, 26);
+		}
+		return lblDeleteChat;
+	}
+	private JTextField getTextFieldChat() {
+		if (textFieldChat == null) {
+			textFieldChat = new JTextField();
+			textFieldChat.setForeground(new Color(255, 102, 0));
+			textFieldChat.setBackground(new Color(255, 255, 153));
+			textFieldChat.setFont(new Font("Showcard Gothic", Font.PLAIN, 17));
+			textFieldChat.setBounds(1332, 678, 224, 29);
+			textFieldChat.setColumns(10);
+		}
+		return textFieldChat;
+	}
+	private JTextArea getTextAreaChat() {
+		if (textAreaChat == null) {
+			textAreaChat = new JTextArea();
+			textAreaChat.setBackground(new Color(255, 255, 204));
+			textAreaChat.setForeground(new Color(255, 102, 0));
+			textAreaChat.setFont(new Font("Showcard Gothic", Font.PLAIN, 16));
+		}
+		return textAreaChat;
+	}
+	private JScrollPane getScrollPaneChat() {
+		if (scrollPaneChat == null) {
+			scrollPaneChat = new JScrollPane();
+			scrollPaneChat.setBounds(1328, 224, 263, 433);
+			scrollPaneChat.setViewportView(getTextAreaChat());
+		}
+		return scrollPaneChat;
 	}
 }

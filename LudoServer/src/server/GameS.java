@@ -71,10 +71,10 @@ public class GameS {
 	
 	public void make_red_pawns(int playerID) {
 		
-		PawnS p1 = new PawnS(CommandS.RED, 1, 92, 835, 85);
-		PawnS p2 = new PawnS(CommandS.RED, 2, 93, 933, 85);
-		PawnS p3 = new PawnS(CommandS.RED, 3, 94, 835, 173);
-		PawnS p4 = new PawnS(CommandS.RED, 4, 95, 933, 173);
+		PawnS p1 = new PawnS(CommandS.RED, 1, 92, 805, 85);
+		PawnS p2 = new PawnS(CommandS.RED, 2, 93, 903, 85);
+		PawnS p3 = new PawnS(CommandS.RED, 3, 94, 805, 173);
+		PawnS p4 = new PawnS(CommandS.RED, 4, 95, 903, 173);
 		
 		players[playerID - 1].getPawns()[0] = p1;
 		players[playerID - 1].getPawns()[1] = p2;
@@ -85,10 +85,10 @@ public class GameS {
 	
 	public void make_blue_pawns(int playerID) {
 		
-		PawnS p1 = new PawnS(CommandS.BLUE, 1, 96, 372, 550);
-		PawnS p2 = new PawnS(CommandS.BLUE, 2, 97, 470, 550);
-		PawnS p3 = new PawnS(CommandS.BLUE, 3, 98, 372, 635);
-		PawnS p4 = new PawnS(CommandS.BLUE, 4, 99, 470, 635);
+		PawnS p1 = new PawnS(CommandS.BLUE, 1, 96, 342, 550);
+		PawnS p2 = new PawnS(CommandS.BLUE, 2, 97, 440, 550);
+		PawnS p3 = new PawnS(CommandS.BLUE, 3, 98, 342, 635);
+		PawnS p4 = new PawnS(CommandS.BLUE, 4, 99, 440, 635);
 		
 		players[playerID - 1].getPawns()[0] = p1;
 		players[playerID - 1].getPawns()[1] = p2;
@@ -99,10 +99,10 @@ public class GameS {
 	
 	public void make_green_pawns(int playerID) {
 		
-		PawnS p1 = new PawnS(CommandS.GREEN, 1, 100, 835, 550);
-		PawnS p2 = new PawnS(CommandS.GREEN, 2, 101, 933, 550);
-		PawnS p3 = new PawnS(CommandS.GREEN, 3, 102, 835, 635);
-		PawnS p4 = new PawnS(CommandS.GREEN, 4, 103, 933, 635);
+		PawnS p1 = new PawnS(CommandS.GREEN, 1, 100, 805, 550);
+		PawnS p2 = new PawnS(CommandS.GREEN, 2, 101, 903, 550);
+		PawnS p3 = new PawnS(CommandS.GREEN, 3, 102, 805, 635);
+		PawnS p4 = new PawnS(CommandS.GREEN, 4, 103, 903, 635);
 		
 		players[playerID - 1].getPawns()[0] = p1;
 		players[playerID - 1].getPawns()[1] = p2;
@@ -113,10 +113,10 @@ public class GameS {
 	
 	public void make_yelow_pawns(int playerID) {
 		
-		PawnS p1 = new PawnS(CommandS.YELLOW, 1, 88, 372, 85);
-		PawnS p2 = new PawnS(CommandS.YELLOW, 2, 89, 470, 85);
-		PawnS p3 = new PawnS(CommandS.YELLOW, 3, 90, 372, 173);
-		PawnS p4 = new PawnS(CommandS.YELLOW, 4, 91, 470, 173);
+		PawnS p1 = new PawnS(CommandS.YELLOW, 1, 88, 342, 85);
+		PawnS p2 = new PawnS(CommandS.YELLOW, 2, 89, 440, 85);
+		PawnS p3 = new PawnS(CommandS.YELLOW, 3, 90, 342, 173);
+		PawnS p4 = new PawnS(CommandS.YELLOW, 4, 91, 440, 173);
 		
 		players[playerID - 1].getPawns()[0] = p1;
 		players[playerID - 1].getPawns()[1] = p2;
@@ -131,153 +131,153 @@ public class GameS {
 	public void make_fields() {
 	
 		
-		FieldS f1 = new FieldS(0, true, false, false, CommandS.YELLOW, 295, 310);
-		FieldS f2 = new FieldS(1, false, false, false, -1, 346, 310);
-		FieldS f3 = new FieldS(2, false, false, false, -1, 397, 310);
-		FieldS f4 = new FieldS(3, false, false, false, -1, 448, 310);
-		FieldS f5 = new FieldS(4, false, false, false, -1, 499, 310);
-		FieldS f6 = new FieldS(5, false, false, false, -1, 550, 310);
+		FieldS f1 = new FieldS(0, true, false, false, CommandS.YELLOW, 265, 310);
+		FieldS f2 = new FieldS(1, false, false, false, -1, 316, 310);
+		FieldS f3 = new FieldS(2, false, false, false, -1, 367, 310);
+		FieldS f4 = new FieldS(3, false, false, false, -1, 418, 310);
+		FieldS f5 = new FieldS(4, false, false, false, -1, 469, 310);
+		FieldS f6 = new FieldS(5, false, false, false, -1, 520, 310);
 		
-		FieldS f7 = new FieldS(6, false, false, false, -1, 601, 260);
-		FieldS f8 = new FieldS(7, false, false, false, -1, 601, 209);
-		FieldS f9 = new FieldS(8, false, false, false, -1, 601, 158);
-		FieldS f10 = new FieldS(9, false, false, false, -1, 601, 107);
-		FieldS f11 = new FieldS(10, false, false, false, -1, 601, 56);
-		FieldS f12 = new FieldS(11, false, false, false, -1, 601, 5);
+		FieldS f7 = new FieldS(6, false, false, false, -1, 571, 260);
+		FieldS f8 = new FieldS(7, false, false, false, -1, 571, 209);
+		FieldS f9 = new FieldS(8, false, false, false, -1, 571, 158);
+		FieldS f10 = new FieldS(9, false, false, false, -1, 571, 107);
+		FieldS f11 = new FieldS(10, false, false, false, -1, 571, 56);
+		FieldS f12 = new FieldS(11, false, false, false, -1, 571, 5);
 		
-		FieldS f13 = new FieldS(12, false, false, false, -1, 652, 5);
+		FieldS f13 = new FieldS(12, false, false, false, -1, 622, 5);
 		
-		FieldS f14 = new FieldS(13, true, false, false, CommandS.RED, 703, 5);
-		FieldS f15 = new FieldS(14, false, false, false, -1, 703, 56);
-		FieldS f16 = new FieldS(15, false, false, false, -1, 703, 107);
-		FieldS f17 = new FieldS(16, false, false, false, -1, 703, 158);
-		FieldS f18 = new FieldS(17, false, false, false, -1, 703, 209);
-		FieldS f19 = new FieldS(18, false, false, false, -1, 703, 260);
+		FieldS f14 = new FieldS(13, true, false, false, CommandS.RED, 673, 5);
+		FieldS f15 = new FieldS(14, false, false, false, -1, 673, 56);
+		FieldS f16 = new FieldS(15, false, false, false, -1, 673, 107);
+		FieldS f17 = new FieldS(16, false, false, false, -1, 673, 158);
+		FieldS f18 = new FieldS(17, false, false, false, -1, 673, 209);
+		FieldS f19 = new FieldS(18, false, false, false, -1, 673, 260);
 		
-		FieldS f20 = new FieldS(19, false, false, false, -1, 754, 310);
-		FieldS f21 = new FieldS(20, false, false, false, -1, 805, 310);
-		FieldS f22 = new FieldS(21, false, false, false, -1, 856, 310);
-		FieldS f23 = new FieldS(22, false, false, false, -1, 907, 310);
-		FieldS f24 = new FieldS(23, false, false, false, -1, 958, 310);
-		FieldS f25 = new FieldS(24, false, false, false, -1, 1009, 310);
+		FieldS f20 = new FieldS(19, false, false, false, -1, 724, 310);
+		FieldS f21 = new FieldS(20, false, false, false, -1, 775, 310);
+		FieldS f22 = new FieldS(21, false, false, false, -1, 826, 310);
+		FieldS f23 = new FieldS(22, false, false, false, -1, 877, 310);
+		FieldS f24 = new FieldS(23, false, false, false, -1, 928, 310);
+		FieldS f25 = new FieldS(24, false, false, false, -1, 979, 310);
 		
-		FieldS f26 = new FieldS(25, false, false, false, -1, 1009, 361);
+		FieldS f26 = new FieldS(25, false, false, false, -1, 979, 361);
 		
-		FieldS f27 = new FieldS(26, true, false, false, -1, 1009, 414);
-		FieldS f28 = new FieldS(27, false, false, false, -1, 958, 414);
-		FieldS f29 = new FieldS(28, false, false, false, -1, 907, 414);
-		FieldS f30 = new FieldS(29, false, false, false, -1, 856, 414);
-		FieldS f31 = new FieldS(30, false, false, false, -1, 805, 414);
-		FieldS f32 = new FieldS(31, false, false, false, -1, 754, 414);
+		FieldS f27 = new FieldS(26, true, false, false, -1, 979, 414);
+		FieldS f28 = new FieldS(27, false, false, false, -1, 928, 414);
+		FieldS f29 = new FieldS(28, false, false, false, -1, 877, 414);
+		FieldS f30 = new FieldS(29, false, false, false, -1, 826, 414);
+		FieldS f31 = new FieldS(30, false, false, false, -1, 775, 414);
+		FieldS f32 = new FieldS(31, false, false, false, -1, 724, 414);
 		
-		FieldS f33 = new FieldS(32, false, false, false, -1, 703, 465);
-		FieldS f34 = new FieldS(33, false, false, false, -1, 703, 516);
-		FieldS f35 = new FieldS(34, false, false, false, -1, 703, 567);
-		FieldS f36 = new FieldS(35, false, false, false, -1, 703, 618);
-		FieldS f37 = new FieldS(36, false, false, false, -1, 703, 669);
-		FieldS f38 = new FieldS(37, false, false, false, -1, 703, 720);
+		FieldS f33 = new FieldS(32, false, false, false, -1, 673, 465);
+		FieldS f34 = new FieldS(33, false, false, false, -1, 673, 516);
+		FieldS f35 = new FieldS(34, false, false, false, -1, 673, 567);
+		FieldS f36 = new FieldS(35, false, false, false, -1, 673, 618);
+		FieldS f37 = new FieldS(36, false, false, false, -1, 673, 669);
+		FieldS f38 = new FieldS(37, false, false, false, -1, 673, 720);
 		
-		FieldS f39 = new FieldS(38, false, false, false, -1, 652, 720);
+		FieldS f39 = new FieldS(38, false, false, false, -1, 622, 720);
 		
-		FieldS f40 = new FieldS(39, true, false, false, CommandS.BLUE, 601, 720);
-		FieldS f41 = new FieldS(40, false, false, false, -1, 601, 669);
-		FieldS f42 = new FieldS(41, false, false, false, -1, 601, 618);
-		FieldS f43 = new FieldS(42, false, false, false, -1, 601, 567);
-		FieldS f44 = new FieldS(43, false, false, false, -1, 601, 516);
-		FieldS f45 = new FieldS(44, false, false, false, -1, 601, 465);
+		FieldS f40 = new FieldS(39, true, false, false, CommandS.BLUE, 571, 720);
+		FieldS f41 = new FieldS(40, false, false, false, -1, 571, 669);
+		FieldS f42 = new FieldS(41, false, false, false, -1, 571, 618);
+		FieldS f43 = new FieldS(42, false, false, false, -1, 571, 567);
+		FieldS f44 = new FieldS(43, false, false, false, -1, 571, 516);
+		FieldS f45 = new FieldS(44, false, false, false, -1, 571, 465);
 		
-		FieldS f46 = new FieldS(45, false, false, false, -1, 550, 414);
-		FieldS f47 = new FieldS(46, false, false, false, -1, 499, 414);
-		FieldS f48 = new FieldS(47, false, false, false, -1, 448, 414);
-		FieldS f49 = new FieldS(48, false, false, false, -1, 397, 414);
-		FieldS f50 = new FieldS(49, false, false, false, -1, 346, 414);
-		FieldS f51 = new FieldS(50, false, false, false, -1, 295, 414);
+		FieldS f46 = new FieldS(45, false, false, false, -1, 520, 414);
+		FieldS f47 = new FieldS(46, false, false, false, -1, 469, 414);
+		FieldS f48 = new FieldS(47, false, false, false, -1, 418, 414);
+		FieldS f49 = new FieldS(48, false, false, false, -1, 367, 414);
+		FieldS f50 = new FieldS(49, false, false, false, -1, 316, 414);
+		FieldS f51 = new FieldS(50, false, false, false, -1, 265, 414);
 		
-		FieldS f52 = new FieldS(51, false, false, false, -1, 295, 361);
+		FieldS f52 = new FieldS(51, false, false, false, -1, 265, 361);
 		
 		// ovde se zavrsavaju polja za hod
 		
 		//	ovo su ulazi u cilj
 		
-		FieldS f53 = new FieldS(52, true, false, false, CommandS.YELLOW, 346, 361);
-		FieldS f54 = new FieldS(53, true, false, false, CommandS.YELLOW, 397, 361);
-		FieldS f55 = new FieldS(54, true, false, false, CommandS.YELLOW, 448, 361);
-		FieldS f56 = new FieldS(55, true, false, false, CommandS.YELLOW, 499, 361);
-		FieldS f57 = new FieldS(56, true, false, false, CommandS.YELLOW, 550, 361);
+		FieldS f53 = new FieldS(52, true, false, false, CommandS.YELLOW, 316, 361);
+		FieldS f54 = new FieldS(53, true, false, false, CommandS.YELLOW, 367, 361);
+		FieldS f55 = new FieldS(54, true, false, false, CommandS.YELLOW, 418, 361);
+		FieldS f56 = new FieldS(55, true, false, false, CommandS.YELLOW, 469, 361);
+		FieldS f57 = new FieldS(56, true, false, false, CommandS.YELLOW, 520, 361);
 		
-		FieldS f58 = new FieldS(57, true, false, false, CommandS.RED, 652, 56);
-		FieldS f59 = new FieldS(58, true, false, false, CommandS.RED, 652, 107);
-		FieldS f60 = new FieldS(59, true, false, false, CommandS.RED, 652, 158);
-		FieldS f61 = new FieldS(60, true, false, false, CommandS.RED, 652, 209);
-		FieldS f62 = new FieldS(61, true, false, false, CommandS.RED, 652, 260);
+		FieldS f58 = new FieldS(57, true, false, false, CommandS.RED, 622, 56);
+		FieldS f59 = new FieldS(58, true, false, false, CommandS.RED, 622, 107);
+		FieldS f60 = new FieldS(59, true, false, false, CommandS.RED, 622, 158);
+		FieldS f61 = new FieldS(60, true, false, false, CommandS.RED, 622, 209);
+		FieldS f62 = new FieldS(61, true, false, false, CommandS.RED, 622, 260);
 	
-		FieldS f63 = new FieldS(62, true, false, false, CommandS.GREEN, 958, 361);
-		FieldS f64 = new FieldS(63, true, false, false, CommandS.GREEN, 907, 361);
-		FieldS f65 = new FieldS(64, true, false, false, CommandS.GREEN, 856, 361);
-		FieldS f66 = new FieldS(65, true, false, false, CommandS.GREEN, 805, 361);
-		FieldS f67 = new FieldS(66, true, false, false, CommandS.GREEN, 754, 361);
+		FieldS f63 = new FieldS(62, true, false, false, CommandS.GREEN, 928, 361);
+		FieldS f64 = new FieldS(63, true, false, false, CommandS.GREEN, 877, 361);
+		FieldS f65 = new FieldS(64, true, false, false, CommandS.GREEN, 826, 361);
+		FieldS f66 = new FieldS(65, true, false, false, CommandS.GREEN, 775, 361);
+		FieldS f67 = new FieldS(66, true, false, false, CommandS.GREEN, 724, 361);
 		
-		FieldS f68 = new FieldS(67, true, false, false, CommandS.BLUE, 669, 310);
-		FieldS f69 = new FieldS(68, true, false, false, CommandS.BLUE, 618, 310);
-		FieldS f70 = new FieldS(69, true, false, false, CommandS.BLUE, 567, 310);
-		FieldS f71 = new FieldS(70, true, false, false, CommandS.BLUE, 516, 310);
-		FieldS f72 = new FieldS(71, true, false, false, CommandS.BLUE, 465, 310);
+		FieldS f68 = new FieldS(67, true, false, false, CommandS.BLUE, 639, 310);
+		FieldS f69 = new FieldS(68, true, false, false, CommandS.BLUE, 588, 310);
+		FieldS f70 = new FieldS(69, true, false, false, CommandS.BLUE, 537, 310);
+		FieldS f71 = new FieldS(70, true, false, false, CommandS.BLUE, 486, 310);
+		FieldS f72 = new FieldS(71, true, false, false, CommandS.BLUE, 435, 310);
 		
 
 		//	ovde su ciljevi
 		//	za ciljeve sam stavljao kordinate za punu velicinu figure, figure treba da se promene na male tj 44x62
 		
 		// zuti
-		FieldS f73 = new FieldS(72, true, false, true, CommandS.YELLOW, 597, 386);
-		FieldS f74 = new FieldS(73, true, false, true, CommandS.YELLOW, 597, 371);
-		FieldS f75 = new FieldS(74, true, false, true, CommandS.YELLOW, 597, 356);
-		FieldS f76 = new FieldS(75, true, false, true, CommandS.YELLOW, 597, 341);
+		FieldS f73 = new FieldS(72, true, false, true, CommandS.YELLOW, 567, 386);
+		FieldS f74 = new FieldS(73, true, false, true, CommandS.YELLOW, 567, 371);
+		FieldS f75 = new FieldS(74, true, false, true, CommandS.YELLOW, 567, 356);
+		FieldS f76 = new FieldS(75, true, false, true, CommandS.YELLOW, 567, 341);
 		
 		
 		// crveni
-		FieldS f77 = new FieldS(76, true, false, true, CommandS.RED, 623, 305);
-		FieldS f78 = new FieldS(77, true, false, true, CommandS.RED, 643, 305);
-		FieldS f79 = new FieldS(78, true, false, true, CommandS.RED, 663, 305);
-		FieldS f80 = new FieldS(79, true, false, true, CommandS.RED, 683, 305);
+		FieldS f77 = new FieldS(76, true, false, true, CommandS.RED, 593, 305);
+		FieldS f78 = new FieldS(77, true, false, true, CommandS.RED, 613, 305);
+		FieldS f79 = new FieldS(78, true, false, true, CommandS.RED, 633, 305);
+		FieldS f80 = new FieldS(79, true, false, true, CommandS.RED, 653, 305);
 		
 		// zeleni
-		FieldS f81 = new FieldS(80, true, false, true, CommandS.BLUE, 707, 341);
-		FieldS f82 = new FieldS(81, true, false, true, CommandS.BLUE, 707, 356);
-		FieldS f83 = new FieldS(82, true, false, true, CommandS.BLUE, 707, 371);
-		FieldS f84 = new FieldS(83, true, false, true, CommandS.BLUE, 707, 386);
+		FieldS f81 = new FieldS(80, true, false, true, CommandS.BLUE, 677, 341);
+		FieldS f82 = new FieldS(81, true, false, true, CommandS.BLUE, 677, 356);
+		FieldS f83 = new FieldS(82, true, false, true, CommandS.BLUE, 677, 371);
+		FieldS f84 = new FieldS(83, true, false, true, CommandS.BLUE, 677, 386);
 		
 		
 		//	plavi
-		FieldS f85 = new FieldS(84, true, false, true, CommandS.GREEN, 623, 417);
-		FieldS f86 = new FieldS(85, true, false, true, CommandS.GREEN, 643, 417);
-		FieldS f87 = new FieldS(86, true, false, true, CommandS.GREEN, 663, 417);
-		FieldS f88 = new FieldS(87, true, false, true, CommandS.GREEN, 683, 417);
+		FieldS f85 = new FieldS(84, true, false, true, CommandS.GREEN, 593, 417);
+		FieldS f86 = new FieldS(85, true, false, true, CommandS.GREEN, 613, 417);
+		FieldS f87 = new FieldS(86, true, false, true, CommandS.GREEN, 633, 417);
+		FieldS f88 = new FieldS(87, true, false, true, CommandS.GREEN, 653, 417);
 			
 		
 		// ovde pocinju baze
 		// zuta
-		FieldS f89 = new FieldS(88, true, true, false, CommandS.YELLOW, 372, 85);
-		FieldS f90 = new FieldS(89, true, true, false, CommandS.YELLOW, 470, 85);
-		FieldS f91 = new FieldS(90, true, true, false, CommandS.YELLOW, 372, 173);
-		FieldS f92 = new FieldS(91, true, true, false, CommandS.YELLOW, 470, 173);
+		FieldS f89 = new FieldS(88, true, true, false, CommandS.YELLOW, 342, 85);
+		FieldS f90 = new FieldS(89, true, true, false, CommandS.YELLOW, 440, 85);
+		FieldS f91 = new FieldS(90, true, true, false, CommandS.YELLOW, 342, 173);
+		FieldS f92 = new FieldS(91, true, true, false, CommandS.YELLOW, 440, 173);
 		
 		// crvena
-		FieldS f93 = new FieldS(92, true, true, false, CommandS.RED, 835, 85);
-		FieldS f94 = new FieldS(93, true, true, false, CommandS.RED, 933, 85);
-		FieldS f95 = new FieldS(94, true, true, false, CommandS.RED, 835, 173);
-		FieldS f96 = new FieldS(95, true, true, false, CommandS.RED, 933, 173);
+		FieldS f93 = new FieldS(92, true, true, false, CommandS.RED, 805, 85);
+		FieldS f94 = new FieldS(93, true, true, false, CommandS.RED, 903, 85);
+		FieldS f95 = new FieldS(94, true, true, false, CommandS.RED, 805, 173);
+		FieldS f96 = new FieldS(95, true, true, false, CommandS.RED, 903, 173);
 		
 		//	plava
-		FieldS f97 = new FieldS(96, true, true, false, CommandS.BLUE, 372, 550);
-		FieldS f98 = new FieldS(97, true, true, false, CommandS.BLUE, 470, 550);
-		FieldS f99 = new FieldS(98, true, true, false, CommandS.BLUE, 372, 635);
-		FieldS f100 = new FieldS(99, true, true, false, CommandS.BLUE, 470, 635);
+		FieldS f97 = new FieldS(96, true, true, false, CommandS.BLUE, 342, 550);
+		FieldS f98 = new FieldS(97, true, true, false, CommandS.BLUE, 440, 550);
+		FieldS f99 = new FieldS(98, true, true, false, CommandS.BLUE, 342, 635);
+		FieldS f100 = new FieldS(99, true, true, false, CommandS.BLUE, 440, 635);
 		
 		// zelena
-		FieldS f101 = new FieldS(100, true, true, false, CommandS.GREEN, 835, 550);
-		FieldS f102 = new FieldS(101, true, true, false, CommandS.GREEN, 933, 550);
-		FieldS f103 = new FieldS(102, true, true, false, CommandS.GREEN, 835, 635);
-		FieldS f104 = new FieldS(103, true, true, false, CommandS.GREEN, 933, 635);
+		FieldS f101 = new FieldS(100, true, true, false, CommandS.GREEN, 805, 550);
+		FieldS f102 = new FieldS(101, true, true, false, CommandS.GREEN, 903, 550);
+		FieldS f103 = new FieldS(102, true, true, false, CommandS.GREEN, 805, 635);
+		FieldS f104 = new FieldS(103, true, true, false, CommandS.GREEN, 903, 635);
 		
 		fields[0] = f1;
 		fields[1] = f2;
