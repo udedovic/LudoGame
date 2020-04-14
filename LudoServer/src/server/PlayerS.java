@@ -1,18 +1,26 @@
 package server;
 
-
 public class PlayerS {
-	
+
 	private String name;
 	private int color = 0;
-	private boolean isOnTurn;
+	private boolean isOnTurn = false;
 	private int playerId;
-	
-	private static PawnS[] pawns = new PawnS[3];
+	private boolean isReady = false; // koristi se samo za prelaz sa main menua na ludo game
+
+	private PawnS[] pawns = new PawnS[4];
 
 	public PlayerS(int playerId) {
 		super();
 		this.playerId = playerId;
+	}
+
+	public boolean isReady() {
+		return isReady;
+	}
+
+	public void setReady(boolean isReady) {
+		this.isReady = isReady;
 	}
 
 	public String getName() {
@@ -47,16 +55,12 @@ public class PlayerS {
 		this.playerId = playerId;
 	}
 
-	public static PawnS[] getPawns() {
+	public PawnS[] getPawns() {
 		return pawns;
 	}
 
-	public static void setPawns(PawnS[] pawns) {
-		PlayerS.pawns = pawns;
+	public void setPawns(PawnS[] pawns) {
+		this.pawns = pawns;
 	}
-	
-	
-	
-	
 
 }

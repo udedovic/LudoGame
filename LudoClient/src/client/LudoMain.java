@@ -34,13 +34,19 @@ public class LudoMain extends JFrame {
 	private static JLabel lblPawnYellow;
 	private JLabel lblEdge;
 	private JLabel lblPlay;
-	private JLabel lblServer;
 	private JLabel lblSetings;
 	private JLabel lblSetingsBackground;
-	private JLabel lblServerBackground;
 
-	private static String selectedColor;
-	
+	private int selectedColor;
+
+	public int getSelectedColor() {
+		return selectedColor;
+	}
+
+	public void setSelectedColor(int selectedColor) {
+		this.selectedColor = selectedColor;
+	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -79,12 +85,11 @@ public class LudoMain extends JFrame {
 		contentPane.add(getLblPawnYellow());
 		contentPane.add(getLblEdge());
 		contentPane.add(getLblPlay());
-		contentPane.add(getLblServer());
 		contentPane.add(getLblSetings());
 		contentPane.add(getLblSetingsBackground());
-		contentPane.add(getLblServerBackground());
 		contentPane.add(getLblBackground());
 	}
+
 	private JLabel getLblName() {
 		if (lblName == null) {
 			lblName = new JLabel("");
@@ -94,6 +99,7 @@ public class LudoMain extends JFrame {
 		}
 		return lblName;
 	}
+
 	private JTextField getTextName() {
 		if (textName == null) {
 			textName = new JTextField();
@@ -106,6 +112,7 @@ public class LudoMain extends JFrame {
 		}
 		return textName;
 	}
+
 	private JLabel getLblBackground() {
 		if (lblBackground == null) {
 			lblBackground = new JLabel("");
@@ -114,6 +121,7 @@ public class LudoMain extends JFrame {
 		}
 		return lblBackground;
 	}
+
 	private JLabel getLblColor() {
 		if (lblColor == null) {
 			lblColor = new JLabel("");
@@ -122,78 +130,82 @@ public class LudoMain extends JFrame {
 		}
 		return lblColor;
 	}
+
 	public JLabel getLblPawnBlue() {
 		if (lblPawnBlue == null) {
 			lblPawnBlue = new JLabel("");
 			lblPawnBlue.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-				
-//					Game.PlayerYou.setColor(ClientThread.BLUE);
-//					
-//					ClientThreadImpl.setSendingCode(ClientThread.SEND_COLOR);
-//					lblPawnBlue.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnBlueEdge.png")));
+
+					selectedColor = CommandC.BLUE;
+
+					ClientExecute.setSendingCode(CommandC.SEND_COLOR);
 				}
 			});
 			lblPawnBlue.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnBlue.png")));
-			lblPawnBlue.setBounds(124, 181, 100, 141);
+			lblPawnBlue.setBounds(124, 206, 100, 141);
 		}
 		return lblPawnBlue;
 	}
+
 	public JLabel getLblPawnRed() {
 		if (lblPawnRed == null) {
 			lblPawnRed = new JLabel("");
 			lblPawnRed.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					
-//					Game.PlayerYou.setColor(ClientThread.RED);
-//					
-//					ClientThreadImpl.setSendingCode(ClientThread.SEND_COLOR);
-//					lblPawnRed.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnRedEdge.png")));
+
+					selectedColor = CommandC.RED;
+
+					ClientExecute.setSendingCode(CommandC.SEND_COLOR);
+
 				}
 			});
 			lblPawnRed.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnRed.png")));
-			lblPawnRed.setBounds(19, 181, 100, 141);
+			lblPawnRed.setBounds(19, 206, 100, 141);
 		}
 		return lblPawnRed;
 	}
+
 	public JLabel getLblPawnGreen() {
 		if (lblPawnGreen == null) {
 			lblPawnGreen = new JLabel("");
 			lblPawnGreen.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					
-//					Game.PlayerYou.setColor(ClientThread.GREEN);
-//					
-//					ClientThreadImpl.setSendingCode(ClientThread.SEND_COLOR);
-//					lblPawnGreen.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnGreenEdge.png")));
+
+					selectedColor = CommandC.GREEN;
+
+					ClientExecute.setSendingCode(CommandC.SEND_COLOR);
+
 				}
 			});
 			lblPawnGreen.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnGreen.png")));
-			lblPawnGreen.setBounds(225, 181, 100, 141);
+			lblPawnGreen.setBounds(225, 206, 100, 141);
 		}
 		return lblPawnGreen;
 	}
+
 	public JLabel getLblPawnYellow() {
 		if (lblPawnYellow == null) {
 			lblPawnYellow = new JLabel("");
 			lblPawnYellow.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					
-//					Game.PlayerYou.setColor(ClientThread.YELLOW);
-//					
-//					ClientThreadImpl.setSendingCode(ClientThread.SEND_COLOR);
-//					lblPawnYellow.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/PawnEdge/pawnYellowEdge.png")));
+
+					selectedColor = CommandC.YELLOW;
+
+					ClientExecute.setSendingCode(CommandC.SEND_COLOR);
+
 				}
 			});
 			lblPawnYellow.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/pawnYellow.png")));
-			lblPawnYellow.setBounds(332, 181, 100, 141);
+			lblPawnYellow.setBounds(332, 206, 100, 141);
 		}
 		return lblPawnYellow;
 	}
+
 	private JLabel getLblEdge() {
 		if (lblEdge == null) {
 			lblEdge = new JLabel("");
@@ -202,60 +214,66 @@ public class LudoMain extends JFrame {
 		}
 		return lblEdge;
 	}
+
 	private JLabel getLblPlay() {
 		if (lblPlay == null) {
 			lblPlay = new JLabel("");
 			lblPlay.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-//					if(textName == null || textName.equals("")) {
-//						JOptionPane.showMessageDialog(LudoMain.this, "Please enter name", "error", JOptionPane.ERROR_MESSAGE);
-//						return;
-//					}
-//					
-//					if(selectedColor == null) {
-//						JOptionPane.showMessageDialog(LudoMain.this, "Please select color", "error", JOptionPane.ERROR_MESSAGE);
-//						return;
-//					}
-//					ClientThreadImpl.setNameOfPlayer(textName.getText());
-//					ClientThreadImpl.setColorOfPlayer(selectedColor);
+
+					if (textName.getText() == null || textName.getText().equals("")) {
+						JOptionPane.showMessageDialog(LudoMain.this, "Please enter name", "error",
+								JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+
+					if (RunExecutes.isColorIsSelected() == false) {
+						JOptionPane.showMessageDialog(LudoMain.this, "Please select color", "error",
+								JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+
+					Client.game.getPlayers()[GameC.getYouPlayerID() - 1].setName(textName.getText());
+
+					ClientExecute.setSendingCode(CommandC.PLAY);
+
+				}
+
+				/*
+				 * pomeranje play kada je mis na njemu
+				 */
+				@Override
+				public void mouseEntered(MouseEvent arg0) {
+					lblPlay.setBounds(147, 355, 173, 83);
+				}
+
+				@Override
+				public void mouseExited(MouseEvent e) {
+					lblPlay.setBounds(147, 360, 173, 83);
 				}
 			});
 			lblPlay.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/play1.png")));
-			lblPlay.setBounds(147, 335, 173, 83);
+			lblPlay.setBounds(147, 360, 173, 83);
 		}
 		return lblPlay;
 	}
-	private JLabel getLblServer() {
-		if (lblServer == null) {
-			lblServer = new JLabel("");
-			lblServer.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/server.png")));
-			lblServer.setBounds(255, 458, 131, 54);
-		}
-		return lblServer;
-	}
+
 	private JLabel getLblSetings() {
 		if (lblSetings == null) {
 			lblSetings = new JLabel("");
 			lblSetings.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/settingsFinal.png")));
-			lblSetings.setBounds(46, 458, 160, 53);
+			lblSetings.setBounds(157, 474, 160, 53);
 		}
 		return lblSetings;
 	}
+
 	private JLabel getLblSetingsBackground() {
 		if (lblSetingsBackground == null) {
 			lblSetingsBackground = new JLabel("");
 			lblSetingsBackground.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/setingsBackFinal.png")));
-			lblSetingsBackground.setBounds(36, 447, 170, 65);
+			lblSetingsBackground.setBounds(147, 467, 170, 65);
 		}
 		return lblSetingsBackground;
-	}
-	private JLabel getLblServerBackground() {
-		if (lblServerBackground == null) {
-			lblServerBackground = new JLabel("");
-			lblServerBackground.setIcon(new ImageIcon(LudoMain.class.getResource("/Resource/setingsBackFinal.png")));
-			lblServerBackground.setBounds(232, 447, 170, 65);
-		}
-		return lblServerBackground;
 	}
 }

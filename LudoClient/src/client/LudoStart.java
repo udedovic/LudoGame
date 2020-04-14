@@ -37,18 +37,18 @@ public class LudoStart extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	// public static void main(String[] args) {
-	// EventQueue.invokeLater(new Runnable() {
-	// public void run() {
-	// try {
-	// LudoStart frame = new LudoStart();
-	// frame.setVisible(true);
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	// }
-	// });
-	// }
+//	 public static void main(String[] args) {
+//	 EventQueue.invokeLater(new Runnable() {
+//	 public void run() {
+//	 try {
+//	 LudoStart frame = new LudoStart();
+//	 frame.setVisible(true);
+//	 } catch (Exception e) {
+//	 e.printStackTrace();
+//	 }
+//	 }
+//	 });
+//	 }
 
 	/**
 	 * Create the frame.
@@ -117,23 +117,21 @@ public class LudoStart extends JFrame {
 			lblChangeS.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					
-					int value = JOptionPane.showConfirmDialog(LudoStart.this,
-							"Do you want to change server?", "Change server",
-							JOptionPane.YES_NO_OPTION);
+
+					int value = JOptionPane.showConfirmDialog(LudoStart.this, "Do you want to change server?",
+							"Change server", JOptionPane.YES_NO_OPTION);
 					if (value == 0) {
-						
-						String s = JOptionPane.showInputDialog(LudoStart.this,
-						        "Enter the server address:");
-						
+
+						String s = JOptionPane.showInputDialog(LudoStart.this, "Enter the server address:");
+
 						Client.setAddress(s); // proveri nepozeljne slucajeve
-						
+
 						JOptionPane.showMessageDialog(LudoStart.this,
 								"You have successfully change server to: " + Client.getAddress(), "Server changed",
 								JOptionPane.INFORMATION_MESSAGE);
 						lblServerNameFild.setText(Client.getAddress());
 					}
-					
+
 				}
 			});
 			lblChangeS.setIcon(new ImageIcon(LudoStart.class.getResource("/Resource/FirstPage/changeServer.png")));
@@ -157,14 +155,13 @@ public class LudoStart extends JFrame {
 			lblMakeRoom.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
-					
-					int value = JOptionPane.showConfirmDialog(LudoStart.this,
-							"Do you want to create new room?", "Create room",
-							JOptionPane.YES_NO_OPTION);
+
+					int value = JOptionPane.showConfirmDialog(LudoStart.this, "Do you want to create new room?",
+							"Create room", JOptionPane.YES_NO_OPTION);
 					if (value == 0) {
 						ClientExecute.setSendingCode(CommandC.CREATE_ROOM);
 						Client.setWait(false);
-						
+
 					}
 				}
 			});
@@ -183,7 +180,7 @@ public class LudoStart extends JFrame {
 
 					String text = textRoom.getText();
 					if (text != null && !text.equals("")) {
-						
+
 						GameC.setRoomID(Integer.parseInt(text));
 						ClientExecute.setSendingCode(CommandC.GO_START);
 						Client.setWait(false);
@@ -196,13 +193,13 @@ public class LudoStart extends JFrame {
 							ClientExecute.setSendingCode(CommandC.CREATE_ROOM);
 
 							Client.setWait(false);
-							
+
 						}
 					}
 				}
 			});
-			lblGO.setIcon(new ImageIcon(LudoStart.class.getResource("/Resource/FirstPage/GOButtonF (2).png")));
-			lblGO.setBounds(198, 381, 110, 115);
+			lblGO.setIcon(new ImageIcon(LudoStart.class.getResource("/Resource/goBtn.png")));
+			lblGO.setBounds(197, 381, 110, 110);
 		}
 		return lblGO;
 	}
